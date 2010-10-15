@@ -1,0 +1,8 @@
+test.xml
+settings.xml
+*.class
+MjdjMidiMorph/Mjdj.app/Contents/Resources/Java/Mjdj.jar
+MjdjMidiMorph/Mjdj.app/Contents/Resources/Java/MjdjApi.jar
+*.dmg
+MjdjOnWindows/lib/Mjdj.jar
+MjdjOnWindows/lib/MjdjApi.jar
