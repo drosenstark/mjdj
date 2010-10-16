@@ -1,0 +1,76 @@
+package com.confusionists.mjdj.morphs.oldLooper;
+import java.util.List;
+
+import javax.sound.midi.ShortMessage;
+
+import com.confusionists.mjdj.api.DeviceNotFoundException;
+import com.confusionists.mjdj.api.MessageWrapper;
+import com.confusionists.mjdj.api.MidiTimerTask;
+import com.confusionists.mjdj.api.Morph;
+
+public abstract class VariableRepeat extends Morph {
+
+	String deviceName = null;
+	
+	protected float volume = 0;
+	protected int length = 0;
+	
+	protected abstract int getChannelForVolume();
+	protected abstract int getCcForVolume();
+	protected abstract int getChannelForLength();
+	protected abstract int getCcForLength();
+	
+	public boolean process(MessageWrapper message, String from) throws Exception {
+		ShortMessage sMessage = message.getShortMessage();
+		if (sMessage == null) return false;
+		// process the volume and the time
+		if (message.filterControlCommand(getChannelForVolume(), getCcForVolume())) {
+			int value = sMessage.getData2();
+			volume = (float)value/127;
+			return true;
+		}
+		if (message.filterControlCommand(getChannelForLength(), getCcForLength())) {
+			length = sMessage.getData2();
+			return true;
+		}
+		if (length > 0 && (sMessage.getCommand() == ShortMessage.NOTE_ON || sMessage.getCommand() == ShortMessage.NOTE_OFF)) {
+			MidiTimerTask task = new VariableRepeatTimerTask();
+			task.init(service, message, this,
+					deviceName);
+			service.schedule(task, length);
+		}
+		return false; // we process, but we don't eat it
+	}
+
+	public void init(List<String> deviceNames) throws DeviceNotFoundException {
+		for (String name : deviceNames) {
+			if (name.indexOf("IAC") != -1 && name.indexOf("1 OUT") != -1) {
+				deviceName = name;
+				service.log(getName() + " will send to " + deviceName);
+			}
+		}
+	}
+
+	public int getMatchGroup() {
+		return MATCHES_COMMAND + MATCHES_CHANNEL + MATCHES_CC_NUMBER
+				+ MATCHES_DEVICE;
+	}
+
+}
+
+
+class VariableRepeatTimerTask extends MidiTimerTask {
+
+	private VariableRepeat getMorph() {
+		return (VariableRepeat)this.morph;
+	}
+	
+	@Override
+	public void run() {
+		// the payload according to the volume on the morph
+		MessageWrapper payload = this.payload;
+		int newVol = (int)(payload.getShortMessage().getData2() * getMorph().volume); 
+		payload.alter(newVol);
+		super.run();
+	}
+}

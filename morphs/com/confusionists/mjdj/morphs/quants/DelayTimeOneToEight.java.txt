@@ -1,0 +1,48 @@
+package com.confusionists.mjdj.morphs.quants;
+import java.util.List;
+
+import javax.sound.midi.ShortMessage;
+
+import com.confusionists.mjdj.api.DeviceNotFoundException;
+import com.confusionists.mjdj.api.MessageWrapper;
+import com.confusionists.mjdj.api.MorphWithFilter;
+
+
+public abstract class DelayTimeOneToEight extends MorphWithFilter {
+
+
+	@Override
+	public String getName() {
+		return "Delay Time One to Eight";
+	}
+
+	@Override
+	public void init(List<String> deviceNames) throws DeviceNotFoundException {
+	}
+
+	@Override
+	public boolean process(MessageWrapper message, String from) throws Exception {
+		
+		if (filter(message)) {
+			ShortMessage sMessage = message.getShortMessage();
+			int value = sMessage.getData2();
+			value = Math.min(127, 19*(value-1));
+			message.alter(value);
+			service.send(message);
+			return true;
+		}	
+		return false;
+
+	}
+	
+	public int getMatchGroup() {
+		return MATCHES_COMMAND + MATCHES_CHANNEL + MATCHES_CC_NUMBER + MATCHES_DEVICE;
+	}
+	
+	@Override
+	public String diagnose() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

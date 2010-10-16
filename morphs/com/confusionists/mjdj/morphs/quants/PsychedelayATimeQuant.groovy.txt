@@ -1,0 +1,24 @@
+package com.confusionists.mjdj.morphs.quants
+
+/* marked abstract for cleanup, this class is ready to go! */
+public abstract class PsychedelayATimeQuant extends PsychedelayTimeQuantization {
+
+	@Override
+	protected int getCcNumber() {
+		// TODO Auto-generated method stub
+		return 52;
+	}
+
+	@Override
+	protected int getChannel() {
+		// TODO Auto-generated method stub
+		return 1;
+	}
+
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		"Psychedelay A Time Quantization";
+	}
+
+}

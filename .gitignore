@@ -6,3 +6,6 @@ MjdjMidiMorph/Mjdj.app/Contents/Resources/Java/MjdjApi.jar
 *.dmg
 MjdjOnWindows/lib/Mjdj.jar
 MjdjOnWindows/lib/MjdjApi.jar
+.settings
+.pmd
+.classpath

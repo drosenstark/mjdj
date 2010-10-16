@@ -1,0 +1,22 @@
+package com.confusionists.mjdj.morphs.quants
+
+
+/* marked abstract for cleanup, this class is ready to go! */
+public abstract class DelayTimeA extends DelayTimeOneToEight {
+
+	@Override
+	protected int getCcNumber() {
+		return 31;
+	}
+
+	@Override
+	protected int getChannel() {
+		return 0;
+	}
+	
+	@Override
+	public String getName() {
+		return super.getName() + " A";
+	}
+
+}

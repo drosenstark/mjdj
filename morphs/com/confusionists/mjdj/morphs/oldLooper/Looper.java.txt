@@ -1,0 +1,51 @@
+package com.confusionists.mjdj.morphs.oldLooper;
+
+
+
+import java.util.List;
+
+import javax.sound.midi.ShortMessage;
+
+import com.confusionists.mjdj.api.DeviceNotFoundException;
+import com.confusionists.mjdj.api.MessageWrapper;
+import com.confusionists.mjdj.api.MidiTimerTask;
+import com.confusionists.mjdj.api.MorphWithFilter;
+import com.confusionists.mjdj.api.SwitchableTimerTask;
+
+
+/* we don't actually use the filter */
+public abstract class Looper extends MorphWithFilter {
+
+    public String getOutDeviceName() {
+        return "Apple Computer, Inc. - IAC Driver IAC Bus ";
+    }
+
+    public boolean process(MessageWrapper message, String from) throws Exception {
+        // we'll have to keep track of these so that you can release one and it keeps going
+        if (message.filterControlCommand(getChannel(), getCcNumber())) {
+            ShortMessage sMessage = message.getShortMessage();
+            playTimedTasks = (sMessage.getData2() > 64);
+            service.log("switched " + getName() + " value=" + playTimedTasks);
+            return true;
+        }
+        if (playTimedTasks)
+            return false;
+        MidiTimerTask task = new SwitchableTimerTask();
+        task.init(service, message, this, getOutDeviceName());
+        service.schedule(task, 8);
+        return false;
+    }
+
+    public void init(List<String> deviceNames) throws DeviceNotFoundException {    
+    	if (getOutDeviceName() != null) {
+    		if (!deviceNames.contains(getOutDeviceName()))
+    				throw new DeviceNotFoundException(getOutDeviceName());
+    	}
+    	
+    	
+    }
+
+    public int getMatchGroup() {
+        return MATCHES_COMMAND + MATCHES_CHANNEL + MATCHES_CC_NUMBER + MATCHES_DEVICE;
+    }
+}
