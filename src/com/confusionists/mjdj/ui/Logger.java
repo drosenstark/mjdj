@@ -12,13 +12,14 @@ As a special exception, the copyright holders of this library give you permissio
 
 You may contact the author at mjdj_midi_morph [at] confusionists.com
  */
-package com.confusionists.mjdj.midi;
+package com.confusionists.mjdj.ui;
 
 import javax.sound.midi.ShortMessage;
 
 import org.codehaus.groovy.runtime.StackTraceUtils;
 
 import com.confusionists.mjdj.Universe;
+import com.confusionists.mjdj.midi.TransmitterWrapperImpl;
 import com.confusionists.mjdjApi.midi.MessageWrapper;
 import com.confusionists.mjdjApi.midi.ShortMessageWrapper;
 import com.confusionists.mjdjApi.midiDevice.DeviceWrapper;

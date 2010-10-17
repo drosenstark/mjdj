@@ -16,7 +16,7 @@ package com.confusionists.mjdj.fileIO;
 
 import java.io.File;
 
-import com.confusionists.mjdj.midi.Logger;
+import com.confusionists.mjdj.ui.Logger;
 import com.confusionists.util.RecursiveFileList;
 
 @Deprecated

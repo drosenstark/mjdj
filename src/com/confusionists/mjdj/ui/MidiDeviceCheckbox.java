@@ -25,8 +25,9 @@ import com.confusionists.mjdj.Universe;
 import com.confusionists.mjdj.settings.Settings;
 import com.confusionists.mjdjApi.midiDevice.DeviceWrapper;
 import com.confusionists.mjdjApi.midiDevice.ReceiverDeviceWrapper;
+import com.confusionists.swing.RightClickable;
 
-public class MidiDeviceCheckbox extends JCheckBox implements ChangeListener {
+public class MidiDeviceCheckbox extends JCheckBox implements ChangeListener, RightClickable {
 
 	boolean initializing = true;
 	private static final long serialVersionUID = 847604558283904051L;
@@ -97,5 +98,11 @@ public class MidiDeviceCheckbox extends JCheckBox implements ChangeListener {
 		return true;
 
 	}
+	
+	@Override
+	public void onRightClick() {
+		wrapper.toggleUi();
+	}
+	
 
 }

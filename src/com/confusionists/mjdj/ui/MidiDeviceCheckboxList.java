@@ -17,7 +17,6 @@ package com.confusionists.mjdj.ui;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.confusionists.mjdj.midi.Logger;
 import com.confusionists.mjdjApi.midiDevice.DeviceWrapper;
 import com.confusionists.mjdjApi.midiDevice.ReceiverDeviceWrapper;
 import com.confusionists.swing.CheckBoxList;

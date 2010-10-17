@@ -20,7 +20,7 @@ import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.List;
 
-import com.confusionists.mjdj.midi.Logger;
+import com.confusionists.mjdj.ui.Logger;
 import com.confusionists.mjdjApi.midiDevice.ReceiverDeviceWrapper;
 import com.confusionists.mjdjApi.midiDevice.TransmitterDeviceWrapper;
 import com.confusionists.util.RecursiveFileList;
@@ -61,16 +61,11 @@ public class DeviceLoaderJava {
 		File[] classFiles = RecursiveFileList.getList(path, "class");
 
 		URL[] urls = getClasspath();
-		;
 		classLoader = new URLClassLoader(urls);
 
 		for (File classFile : classFiles) {
 			String totalPath = classFile.getAbsolutePath();
-			totalPath = totalPath.substring(path.getAbsolutePath().length()); // get
-																				// rid
-																				// of
-																				// the
-																				// root
+			totalPath = totalPath.substring(path.getAbsolutePath().length()); // get rid of the root
 			String className = totalPath.substring(totalPath.lastIndexOf(File.separatorChar) + 1);
 			className = className.substring(0, className.length() - ".class".length());
 			String packagePrefix;
@@ -101,12 +96,12 @@ public class DeviceLoaderJava {
 					transmitters.add(transmitter);
 				}
 			} catch (InstantiationException e) {
-				// Logger.log("Could not instantiate translator " + className +
+				// Logger.log("Could not instantiate device " + className +
 				// " probably abstract");
 			} catch (IllegalAccessException e) {
-				//Logger.log("Could not instantiate translator " + className + " probably private");
+				//Logger.log("Could not instantiate device " + className + " probably private");
 			} catch (Exception e) {
-				Logger.log("Could not instantiate translator " + className, e);
+				Logger.log("Could not instantiate device " + className, e);
 			}
 		}
 	}

@@ -21,7 +21,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.confusionists.mjdj.midi.Logger;
+import com.confusionists.mjdj.ui.Logger;
 import com.confusionists.mjdjApi.morph.Morph;
 import com.confusionists.util.RecursiveFileList;
 

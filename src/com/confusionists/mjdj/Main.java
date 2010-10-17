@@ -30,7 +30,6 @@ import javax.swing.border.TitledBorder;
 import org.codehaus.groovy.runtime.StackTraceUtils;
 
 import com.confusionists.mjdj.fileIO.MorphLoaderJava;
-import com.confusionists.mjdj.midi.Logger;
 import com.confusionists.mjdj.midi.ServiceImpl;
 import com.confusionists.mjdj.settings.MorphAdaptor;
 import com.confusionists.mjdj.settings.Settings;

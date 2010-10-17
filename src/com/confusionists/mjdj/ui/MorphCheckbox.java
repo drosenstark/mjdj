@@ -58,6 +58,7 @@ public class MorphCheckbox extends JCheckBox implements ChangeListener, RightCli
 	}
 
 
+	@Override
 	public void onRightClick() {
 		morph.getMorph().toggleUi();
 	}

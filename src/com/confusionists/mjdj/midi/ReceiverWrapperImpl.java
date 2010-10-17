@@ -59,6 +59,11 @@ public class ReceiverWrapperImpl extends MidiDeviceWrapperImpl implements Receiv
 		}
 	}
 
+	@Override
+	public void toggleUi() {
+		
+	}
+
 
 
 }

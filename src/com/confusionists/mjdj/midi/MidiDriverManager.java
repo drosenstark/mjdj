@@ -22,7 +22,9 @@ import javax.sound.midi.*;
 
 import com.confusionists.mjdj.Universe;
 import com.confusionists.mjdj.fileIO.DeviceLoaderJava;
+import com.confusionists.mjdj.midi.time.InternalClock;
 import com.confusionists.mjdj.settings.MorphAdaptor;
+import com.confusionists.mjdj.ui.Logger;
 import com.confusionists.mjdjApi.midi.MessageWrapper;
 import com.confusionists.mjdjApi.midiDevice.DeviceUnavailableException;
 import com.confusionists.mjdjApi.midiDevice.DeviceWrapper;
@@ -40,19 +42,10 @@ public class MidiDriverManager {
 	}
 
 	public void init() {
-		/*
-		 * try { Class<?>[] paramTypes = { String.class, String.class };
-		 * Object[] params = { "Mjdj Virtual", "Mjdj Virtual" }; Method method =
-		 * Class
-		 * .forName("de.humatic.mmj.MidiSystem").getDeclaredMethod("initMidiSystem"
-		 * , paramTypes); method.invoke(null, params); } catch (Exception e) {
-		 * Main
-		 * .debugLog("Problem loading Virtual Midi Ports (normal on non-OSX systems"
-		 * , e); }
-		 */
-
 		outputReceivers = new ArrayList<ReceiverDeviceWrapper>();
 		inputTransmitters = new ArrayList<TransmitterDeviceWrapper>();
+		
+		inputTransmitters.add(new InternalClock());
 
 		new DeviceLoaderJava().load(inputTransmitters, outputReceivers);
 

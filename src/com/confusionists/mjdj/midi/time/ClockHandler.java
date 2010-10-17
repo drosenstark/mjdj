@@ -20,7 +20,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import com.confusionists.mjdj.Universe;
-import com.confusionists.mjdj.midi.Logger;
+import com.confusionists.mjdj.ui.Logger;
 
 public class ClockHandler {
 
