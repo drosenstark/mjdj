@@ -32,9 +32,13 @@ public class MorphCheckbox extends JCheckBox implements ChangeListener, RightCli
 
 	public MorphCheckbox(MorphAdaptor morph) {
 		this.morph = morph;
+		if (!morph.isSwappable()) {
+			// TODO list needs to be adjusted to allow for special display
+		}
 		if (this.isSelected() != morph.isActive()) 
 			this.doClick();
 		this.addChangeListener(this);
+		
 	}
 	
 	public void onMoveDown() {

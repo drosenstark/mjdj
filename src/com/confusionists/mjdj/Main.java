@@ -45,7 +45,7 @@ import com.confusionists.swing.SwingOps;
 public class Main extends JFrameRedux {
 
 	public static final String PRODUCT_NAME = "Mjdj Midi Morph";
-	public static final String PRODUCT_VERSION = "Beta 0.1.0";
+	public static final String PRODUCT_VERSION = "Beta 0.1.02";
 	public MorphCheckboxList morphCheckboxList;
 	JTextArea outputArea;
 	MidiDeviceCheckboxList inputList;

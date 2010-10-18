@@ -27,11 +27,12 @@ public class ClockHandler {
 	private long lastTick = -1;
 	private int ticks = -1;
 	public long differenceInMs = -1;
-	// these values are used to make sure that we're not following noise in clock differences
-	private long newDifferenceInMs = -1; 
-	private float beatsPerMinute;
+	// these values are used to make sure that we're not following noise in
+	// clock differences
+	private long newDifferenceInMs = -1;
+	private float beatsPerMinute = -1;
 	private boolean suspendFlatlineTimer = false; // flatline timer is suspended
-	
+
 	private List<BeatLockedTimerTask> tasks = new ArrayList<BeatLockedTimerTask>();
 
 	public ClockHandler() {
@@ -54,10 +55,9 @@ public class ClockHandler {
 			lastTick = System.currentTimeMillis();
 		} else if (ticks == 23) {
 			long diff = (thisTick - lastTick) - 1;
-			boolean acceptNewDiff = false; // if the value varies widely just
-			// once, we ignore
-			// it...newDifference is the last
-			// diff
+			boolean acceptNewDiff = false; 
+			// if the value varies widely just
+			// once, we ignore it...newDifference is the last diff
 			if (differenceInMs == -1) {
 				acceptNewDiff = true;
 			} else if (diff != differenceInMs && diff == newDifferenceInMs) {
@@ -76,7 +76,8 @@ public class ClockHandler {
 
 			lastTick = System.currentTimeMillis();
 			ticks = -1;
-			Universe.instance.syncButton.pulse(); // this must come before we set the
+			Universe.instance.syncButton.pulse(); // this must come before we
+													// set the
 			// text
 
 			// copy Tasks is just to avoid concurrently modifying the collection
@@ -113,8 +114,8 @@ public class ClockHandler {
 		ticks = -1;
 		lastTick = -1;
 		tasks.clear(); // those that have already hit their beat before will
-						// fire, but then cannot reschedule. Others will be
-						// killed immediately.
+		// fire, but then cannot reschedule. Others will be
+		// killed immediately.
 	}
 
 	public void sync() {

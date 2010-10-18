@@ -24,6 +24,7 @@ import com.confusionists.mjdj.Universe;
 import com.confusionists.mjdj.fileIO.DeviceLoaderJava;
 import com.confusionists.mjdj.midi.time.InternalClock;
 import com.confusionists.mjdj.settings.MorphAdaptor;
+import com.confusionists.mjdj.settings.Settings;
 import com.confusionists.mjdj.ui.Logger;
 import com.confusionists.mjdjApi.midi.MessageWrapper;
 import com.confusionists.mjdjApi.midiDevice.DeviceUnavailableException;
@@ -104,15 +105,26 @@ public class MidiDriverManager {
 	}
 	
 	private boolean useDevice(MidiDevice device) {
+		boolean retVal;
 		if (device instanceof Sequencer || device instanceof Synthesizer)
 			return false;
-		if (comSunAvailable && isDeviceFromSunProviders(device))
-			return true;
-		else if (!comSunAvailable && !isDeviceFromSunProviders(device))
-			return true;
+		if (Settings.getInstance().doNotUseComSunDrivers) {
+			retVal = !isDeviceFromSunProviders(device);
+			if (!retVal)
+				Logger.log("Skipping Sun drivers for device  " + device.getDeviceInfo().getName() + " (per settings file)");
+			return retVal;
+		}
 		else {
-			Logger.log("Non-default drivers for device  " + device.getDeviceInfo().getName() + " skipped as Sun drivers were found.");
-			return false;
+			if (!comSunAvailable) 
+				return true;
+			else {
+				if (isDeviceFromSunProviders(device))
+					return true;
+				else {
+					Logger.log("Non-default drivers for device  " + device.getDeviceInfo().getName() + " skipped as Sun drivers were found (per settings file)");
+					return false;
+				}
+			} 
 		}
 	}
 	

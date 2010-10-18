@@ -28,6 +28,7 @@ public class Settings  {
 	public Hashtable<String, Boolean> transmitters = new Hashtable<String, Boolean>();
 	public Hashtable<String, MorphAdaptor> morphAdaptors = new Hashtable<String, MorphAdaptor>(); 
 	public String clockSourceCombo;
+	public boolean doNotUseComSunDrivers;
 	
 	public static Settings getInstance() {
 		return getInstance(false, false);
