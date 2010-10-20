@@ -199,9 +199,8 @@ public class MidiDriverManager {
 			if (morph.isActive()) {
 				try {
 					boolean result = morph.getMorph().process(message, from);
-					if (result) {
+					if (result) 
 						return;
-					}
 				} catch (Throwable e) {
 					Logger.log("Error occurred processing translator " + morph.getMorph().getName());
 					e.printStackTrace();
@@ -209,4 +208,19 @@ public class MidiDriverManager {
 			}
 		}
 	}
+	
+	public void onBeat() {
+		for (MorphAdaptor morph : Universe.instance.main.morphCheckboxList.getMorphs()) {
+			if (morph.isActive()) {
+				try {
+					morph.getMorph().onBeat();
+				} catch (Throwable e) {
+					Logger.log("Error occurred processing onBeat for translator " + morph.getMorph().getName());
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
+	
 }

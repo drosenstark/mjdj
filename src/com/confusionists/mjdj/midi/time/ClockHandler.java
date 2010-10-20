@@ -72,9 +72,7 @@ public class ClockHandler {
 
 			lastTick = System.currentTimeMillis();
 			ticks = -1;
-			Universe.instance.syncButton.pulse(); // this must come before we
-													// set the
-			// text
+			Universe.instance.syncButton.pulse(); // this must come before we set the text
 
 			// copy Tasks is just to avoid concurrently modifying the collection
 			// tasks
@@ -83,6 +81,9 @@ public class ClockHandler {
 				if (task.isDead())
 					tasks.remove(task);
 			}
+			
+			Universe.instance.midiDriverManager.onBeat();
+			
 		} else if (ticks == 5) {
 			Universe.instance.syncButton.hideBorder();
 		}
