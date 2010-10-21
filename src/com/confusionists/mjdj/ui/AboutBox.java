@@ -72,7 +72,7 @@ public class AboutBox extends JDialog implements ActionListener {
 			System.err.println("Couldn't load image for about box " + e.getMessage());
 		}
 
-		setTitle("About Mjdj Midi Morph");
+		setTitle("About Mjdj MIDI Morph");
 
 		JPanel topPanel = new JPanel();
 		topPanel.setLayout(new FlowLayout());

@@ -40,7 +40,7 @@ import com.confusionists.swing.SwingOps;
 @SuppressWarnings("serial")
 public class Main extends JFrameRedux {
 
-	public static final String PRODUCT_NAME = "Mjdj Midi Morph";
+	public static final String PRODUCT_NAME = "Mjdj MIDI Morph";
 	public static final String PRODUCT_VERSION = "Beta 0.1.02";
 	public MorphCheckboxList morphCheckboxList;
 	JTextArea outputArea;
@@ -205,7 +205,7 @@ public class Main extends JFrameRedux {
 
 		JMenuItem menuItem;
 		menuItem = new JMenuItem();
-		menuItem.setText("Rescan Midi (Broken)");
+		menuItem.setText("Rescan MIDI (Broken)");
 		menuItem.addActionListener(new java.awt.event.ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
@@ -254,7 +254,7 @@ public class Main extends JFrameRedux {
 			// we need to suppress the File menu FileMenu
 			jMenuBar1.remove(jMenuFile);
 		} else {
-			JMenuItem menuAbout = new JMenuItem("About Mjdj Midi Morph");
+			JMenuItem menuAbout = new JMenuItem("About Mjdj MIDI Morph");
 			menuAbout.addActionListener(new ActionListener() {
 
 				public void actionPerformed(ActionEvent e) {
@@ -277,7 +277,7 @@ public class Main extends JFrameRedux {
 		getContentPane().add(scroller, BorderLayout.EAST);
 
 		morphCheckboxList = new MorphCheckboxList();
-		scroller = getTitledScroller(morphCheckboxList, "Midi Morphs (right-click to open)");
+		scroller = getTitledScroller(morphCheckboxList, "MIDI Morphs (right-click to open)");
 		getContentPane().add(scroller, BorderLayout.CENTER);
 
 		// first scan
