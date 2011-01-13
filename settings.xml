@@ -37,19 +37,19 @@
       <boolean>false</boolean>
     </entry>
     <entry>
-      <string>BEHRINGER - Port 3</string>
-      <boolean>false</boolean>
-    </entry>
-    <entry>
       <string>Apple Computer, Inc. - vthang2mjdj</string>
       <boolean>false</boolean>
     </entry>
     <entry>
-      <string>BEHRINGER - Port 2</string>
+      <string>BEHRINGER - Port 3</string>
       <boolean>false</boolean>
     </entry>
     <entry>
       <string>Apple Computer, Inc. - IAC Driver - vthang2mjdj</string>
+      <boolean>false</boolean>
+    </entry>
+    <entry>
+      <string>BEHRINGER - Port 2</string>
       <boolean>false</boolean>
     </entry>
     <entry>
@@ -111,11 +111,11 @@
       <boolean>true</boolean>
     </entry>
     <entry>
-      <string>BEHRINGER - Port 2</string>
+      <string>Apple Computer, Inc. - IAC Driver - vthang2mjdj</string>
       <boolean>true</boolean>
     </entry>
     <entry>
-      <string>Apple Computer, Inc. - IAC Driver - vthang2mjdj</string>
+      <string>BEHRINGER - Port 2</string>
       <boolean>true</boolean>
     </entry>
     <entry>
@@ -138,14 +138,6 @@
       </com.confusionists.mjdj.settings.MorphAdaptor>
     </entry>
     <entry>
-      <string>M13 Sync</string>
-      <com.confusionists.mjdj.settings.MorphAdaptor>
-        <active>false</active>
-        <orderNumber>2</orderNumber>
-        <dead>false</dead>
-      </com.confusionists.mjdj.settings.MorphAdaptor>
-    </entry>
-    <entry>
       <string>One-bar Delay</string>
       <com.confusionists.mjdj.settings.MorphAdaptor>
         <active>false</active>
@@ -154,18 +146,18 @@
       </com.confusionists.mjdj.settings.MorphAdaptor>
     </entry>
     <entry>
-      <string>Robot 0.1g</string>
+      <string>M13 Sync</string>
       <com.confusionists.mjdj.settings.MorphAdaptor>
-        <active>true</active>
-        <orderNumber>3</orderNumber>
+        <active>false</active>
+        <orderNumber>2</orderNumber>
         <dead>false</dead>
       </com.confusionists.mjdj.settings.MorphAdaptor>
     </entry>
     <entry>
-      <string>Sixteenth-Note Delay</string>
+      <string>Robot 0.1g</string>
       <com.confusionists.mjdj.settings.MorphAdaptor>
-        <active>false</active>
-        <orderNumber>5</orderNumber>
+        <active>true</active>
+        <orderNumber>3</orderNumber>
         <dead>false</dead>
       </com.confusionists.mjdj.settings.MorphAdaptor>
     </entry>
@@ -187,6 +179,14 @@
             </entry>
           </hashtable>
         </serializablePiece>
+      </com.confusionists.mjdj.settings.MorphAdaptor>
+    </entry>
+    <entry>
+      <string>Sixteenth-Note Delay</string>
+      <com.confusionists.mjdj.settings.MorphAdaptor>
+        <active>false</active>
+        <orderNumber>5</orderNumber>
+        <dead>false</dead>
       </com.confusionists.mjdj.settings.MorphAdaptor>
     </entry>
     <entry>
