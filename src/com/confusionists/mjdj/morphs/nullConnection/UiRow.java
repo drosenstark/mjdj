@@ -108,12 +108,11 @@ class UiRow extends JPanel {
 		String lookingForOut = serialiable.get("out");
 		
 		boolean deadLeft = addItemIfDoesNotContain(leftBox, lookingForIn);
-		boolean deadRight = addItemIfDoesNotContain(rightBox, lookingForIn);
+		boolean deadRight = addItemIfDoesNotContain(rightBox, lookingForOut);
 
 		if (deadLeft || deadRight) {
 			leftBox.setEnabled(false);
 			rightBox.setEnabled(false);
-			
 		}
 			
 		
