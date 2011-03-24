@@ -10,10 +10,14 @@
     </entry>
     <entry>
       <string>Apple Computer, Inc. - mjdj2vthang</string>
-      <boolean>true</boolean>
+      <boolean>false</boolean>
     </entry>
     <entry>
       <string>Apple Computer, Inc. - IAC Driver - mjdj2vthang</string>
+      <boolean>true</boolean>
+    </entry>
+    <entry>
+      <string>iPad Server OUT</string>
       <boolean>true</boolean>
     </entry>
     <entry>
@@ -37,19 +41,19 @@
       <boolean>false</boolean>
     </entry>
     <entry>
-      <string>Apple Computer, Inc. - vthang2mjdj</string>
-      <boolean>false</boolean>
-    </entry>
-    <entry>
       <string>BEHRINGER - Port 3</string>
       <boolean>false</boolean>
     </entry>
     <entry>
-      <string>Apple Computer, Inc. - IAC Driver - vthang2mjdj</string>
+      <string>Apple Computer, Inc. - vthang2mjdj</string>
       <boolean>false</boolean>
     </entry>
     <entry>
       <string>BEHRINGER - Port 2</string>
+      <boolean>false</boolean>
+    </entry>
+    <entry>
+      <string>Apple Computer, Inc. - IAC Driver - vthang2mjdj</string>
       <boolean>false</boolean>
     </entry>
     <entry>
@@ -67,31 +71,31 @@
   </receivers>
   <transmitters>
     <entry>
-      <string>nerds.de - Port 2</string>
-      <boolean>true</boolean>
-    </entry>
-    <entry>
-      <string>Internal Clock (@125bpm)</string>
-      <boolean>true</boolean>
-    </entry>
-    <entry>
-      <string>Internal Clock</string>
+      <string>Apple Computer, Inc. - mjdj2live</string>
       <boolean>false</boolean>
     </entry>
     <entry>
-      <string>KORG INC. - KEYBOARD</string>
+      <string>KORG INC. - SLIDER/KNOB</string>
       <boolean>true</boolean>
     </entry>
     <entry>
-      <string>Internal Clock (@120bpm, internal only)</string>
+      <string>nerds.de - Port 4</string>
+      <boolean>false</boolean>
+    </entry>
+    <entry>
+      <string>BEHRINGER - Port 2</string>
       <boolean>true</boolean>
     </entry>
     <entry>
-      <string>Internal-only Clock - 120bpm</string>
+      <string>BEHRINGER - Port 1</string>
       <boolean>true</boolean>
     </entry>
     <entry>
-      <string>Internal Clock (@120bpm)</string>
+      <string>nerds.de - Port 2</string>
+      <boolean>false</boolean>
+    </entry>
+    <entry>
+      <string>Apple Computer, Inc. - IAC Driver - vthang2mjdj</string>
       <boolean>true</boolean>
     </entry>
     <entry>
@@ -99,44 +103,47 @@
       <boolean>false</boolean>
     </entry>
     <entry>
+      <string>KORG INC. - KEYBOARD</string>
+      <boolean>true</boolean>
+    </entry>
+    <entry>
+      <string>IPad Server In</string>
+      <boolean>true</boolean>
+    </entry>
+    <entry>
+      <string>RME - Port 1</string>
+      <boolean>true</boolean>
+    </entry>
+    <entry>
+      <string>Internal-only Clock - 120bpm</string>
+      <boolean>true</boolean>
+    </entry>
+    <entry>
+      <string>Apple Computer, Inc. - vthang2mjdj</string>
+      <boolean>false</boolean>
+    </entry>
+    <entry>
+      <string>Internal Clock</string>
+      <boolean>false</boolean>
+    </entry>
+    <entry>
       <string>BEHRINGER - BCR2000 - Port 2</string>
       <boolean>true</boolean>
     </entry>
     <entry>
-      <string>Apple Computer, Inc. - mjdj2live</string>
-      <boolean>false</boolean>
-    </entry>
-    <entry>
-      <string>Apple Computer, Inc. - vthang2mjdj</string>
+      <string>Internal Clock (@120bpm)</string>
       <boolean>true</boolean>
     </entry>
     <entry>
-      <string>Apple Computer, Inc. - IAC Driver - vthang2mjdj</string>
+      <string>Internal Clock (@120bpm, internal only)</string>
       <boolean>true</boolean>
     </entry>
     <entry>
-      <string>BEHRINGER - Port 2</string>
+      <string>Internal Clock (@125bpm)</string>
       <boolean>true</boolean>
-    </entry>
-    <entry>
-      <string>nerds.de - Port 4</string>
-      <boolean>false</boolean>
     </entry>
   </transmitters>
   <morphAdaptors>
-    <entry>
-      <string>Sending MIDI Commands (for configuration)</string>
-      <com.confusionists.mjdj.settings.MorphAdaptor>
-        <active>false</active>
-        <orderNumber>0</orderNumber>
-        <dead>false</dead>
-        <serializablePiece class="string-array">
-          <string>0</string>
-          <string>39</string>
-          <string>127</string>
-        </serializablePiece>
-      </com.confusionists.mjdj.settings.MorphAdaptor>
-    </entry>
     <entry>
       <string>One-bar Delay</string>
       <com.confusionists.mjdj.settings.MorphAdaptor>
@@ -146,18 +153,42 @@
       </com.confusionists.mjdj.settings.MorphAdaptor>
     </entry>
     <entry>
-      <string>M13 Sync</string>
+      <string>One-beat sustain v. 1.1</string>
       <com.confusionists.mjdj.settings.MorphAdaptor>
         <active>false</active>
-        <orderNumber>2</orderNumber>
+        <orderNumber>6</orderNumber>
+        <dead>false</dead>
+      </com.confusionists.mjdj.settings.MorphAdaptor>
+    </entry>
+    <entry>
+      <string>Robot 0.1h</string>
+      <com.confusionists.mjdj.settings.MorphAdaptor>
+        <active>true</active>
+        <orderNumber>0</orderNumber>
         <dead>false</dead>
       </com.confusionists.mjdj.settings.MorphAdaptor>
     </entry>
     <entry>
       <string>Robot 0.1g</string>
       <com.confusionists.mjdj.settings.MorphAdaptor>
-        <active>true</active>
+        <active>false</active>
         <orderNumber>3</orderNumber>
+        <dead>false</dead>
+      </com.confusionists.mjdj.settings.MorphAdaptor>
+    </entry>
+    <entry>
+      <string>Mike&apos;s MIDI Listener</string>
+      <com.confusionists.mjdj.settings.MorphAdaptor>
+        <active>false</active>
+        <orderNumber>0</orderNumber>
+        <dead>false</dead>
+      </com.confusionists.mjdj.settings.MorphAdaptor>
+    </entry>
+    <entry>
+      <string>M13 Sync</string>
+      <com.confusionists.mjdj.settings.MorphAdaptor>
+        <active>false</active>
+        <orderNumber>2</orderNumber>
         <dead>false</dead>
       </com.confusionists.mjdj.settings.MorphAdaptor>
     </entry>
@@ -178,15 +209,47 @@
               <string>nerds.de - Port 1</string>
             </entry>
           </hashtable>
+          <hashtable>
+            <entry>
+              <string>in</string>
+              <string>Blah 5</string>
+            </entry>
+            <entry>
+              <string>out</string>
+              <string>Blah 6</string>
+            </entry>
+          </hashtable>
+          <hashtable>
+            <entry>
+              <string>in</string>
+              <string>Apple Computer, Inc. - vthang2mjdj</string>
+            </entry>
+            <entry>
+              <string>out</string>
+              <string>iPad Server OUT</string>
+            </entry>
+          </hashtable>
+          <hashtable>
+            <entry>
+              <string>in</string>
+              <string>IPad Server In</string>
+            </entry>
+            <entry>
+              <string>out</string>
+              <string>Apple Computer, Inc. - mjdj2vthang</string>
+            </entry>
+          </hashtable>
+          <hashtable>
+            <entry>
+              <string>in</string>
+              <string>RME - Port 1</string>
+            </entry>
+            <entry>
+              <string>out</string>
+              <string>iPad Server OUT</string>
+            </entry>
+          </hashtable>
         </serializablePiece>
-      </com.confusionists.mjdj.settings.MorphAdaptor>
-    </entry>
-    <entry>
-      <string>Sixteenth-Note Delay</string>
-      <com.confusionists.mjdj.settings.MorphAdaptor>
-        <active>false</active>
-        <orderNumber>5</orderNumber>
-        <dead>false</dead>
       </com.confusionists.mjdj.settings.MorphAdaptor>
     </entry>
     <entry>
@@ -198,11 +261,24 @@
       </com.confusionists.mjdj.settings.MorphAdaptor>
     </entry>
     <entry>
-      <string>One-beat sustain v. 1.1</string>
+      <string>Sixteenth-Note Delay</string>
       <com.confusionists.mjdj.settings.MorphAdaptor>
         <active>false</active>
-        <orderNumber>6</orderNumber>
+        <orderNumber>5</orderNumber>
         <dead>false</dead>
+      </com.confusionists.mjdj.settings.MorphAdaptor>
+    </entry>
+    <entry>
+      <string>Sending MIDI Commands (for configuration)</string>
+      <com.confusionists.mjdj.settings.MorphAdaptor>
+        <active>false</active>
+        <orderNumber>0</orderNumber>
+        <dead>false</dead>
+        <serializablePiece class="string-array">
+          <string>0</string>
+          <string>39</string>
+          <string>127</string>
+        </serializablePiece>
       </com.confusionists.mjdj.settings.MorphAdaptor>
     </entry>
   </morphAdaptors>

@@ -44,7 +44,7 @@ public class NullConnection extends AbstractMorph {
 	public boolean process(MessageWrapper message, String from) throws Exception {
 		// we should put in a safeguard for not sending twice, but for now we'll leave it alone
 		for (UiRow row : ui.rows) {
-			if ((row.getLeftName()==ANY || row.getLeftName().equals(from))) {
+			if (row.isEnabled() &&  (row.getLeftName()==ANY || row.getLeftName().equals(from))) {
 				if (row.getRightName() == ANY)
 					getService().send(message);
 				else

@@ -83,9 +83,41 @@ class UiRow extends JPanel {
 		return retVal;
 	}
 	
-	public void setSerializable(Hashtable<String, String> serialiable) {
-		leftBox.setSelectedItem(serialiable.get("in"));
-		rightBox.setSelectedItem(serialiable.get("out"));
+	private void disableBoxAndAddItemIfDoesNotContain(JComboBox box, String lookingFor) {
+		boolean foundIn = false;
+		// not sure how to do contains
+		for (int i=0; i<box.getItemCount(); i++) {
+			String item = (String)box.getItemAt(i);
+			if (item.equals(lookingFor)) {
+				foundIn = true;
+				break;
+			}
+		}
+		
+		if (!foundIn) {
+			box.setEnabled(false);
+			box.addItem(lookingFor);
+		}
+		
+		
 	}
 	
+	public void setSerializable(Hashtable<String, String> serialiable) {
+		String lookingForIn = serialiable.get("in");
+		String lookingForOut = serialiable.get("out");
+
+		disableBoxAndAddItemIfDoesNotContain(leftBox, lookingForIn);
+		disableBoxAndAddItemIfDoesNotContain(rightBox, lookingForOut);
+		
+		
+		
+		leftBox.setSelectedItem(lookingForIn);
+		rightBox.setSelectedItem(lookingForOut);
+	}
+	
+	
+	@Override
+	public boolean isEnabled() {
+			return (leftBox.isEnabled() && rightBox.isEnabled());
+	}
 }

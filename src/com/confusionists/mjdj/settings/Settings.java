@@ -85,7 +85,7 @@ public class Settings  {
 			FileInputStream fis = new FileInputStream(FILENAME);
 			XStream xstream = new XStream();
 			instance = (Settings) xstream.fromXML(fis);
-			System.out.println("Settings reloaded sucessfully.");
+			System.out.println("Settings reloaded sucessfully from " + new File(FILENAME).getAbsolutePath());
 			try {
 				fis.close();
 			} catch (IOException e) {
