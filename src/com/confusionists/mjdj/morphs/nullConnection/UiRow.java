@@ -83,7 +83,8 @@ class UiRow extends JPanel {
 		return retVal;
 	}
 	
-	private void disableBoxAndAddItemIfDoesNotContain(JComboBox box, String lookingFor) {
+	/* @returns: true if we had to add */
+	private boolean addItemIfDoesNotContain(JComboBox box, String lookingFor) {
 		boolean foundIn = false;
 		// not sure how to do contains
 		for (int i=0; i<box.getItemCount(); i++) {
@@ -95,20 +96,26 @@ class UiRow extends JPanel {
 		}
 		
 		if (!foundIn) {
-			box.setEnabled(false);
 			box.addItem(lookingFor);
+			return true;
 		}
 		
-		
+		return false;
 	}
 	
 	public void setSerializable(Hashtable<String, String> serialiable) {
 		String lookingForIn = serialiable.get("in");
 		String lookingForOut = serialiable.get("out");
-
-		disableBoxAndAddItemIfDoesNotContain(leftBox, lookingForIn);
-		disableBoxAndAddItemIfDoesNotContain(rightBox, lookingForOut);
 		
+		boolean deadLeft = addItemIfDoesNotContain(leftBox, lookingForIn);
+		boolean deadRight = addItemIfDoesNotContain(rightBox, lookingForIn);
+
+		if (deadLeft || deadRight) {
+			leftBox.setEnabled(false);
+			rightBox.setEnabled(false);
+			
+		}
+			
 		
 		
 		leftBox.setSelectedItem(lookingForIn);
