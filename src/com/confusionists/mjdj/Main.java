@@ -41,7 +41,7 @@ import com.confusionists.swing.SwingOps;
 public class Main extends JFrameRedux {
 
 	public static final String PRODUCT_NAME = "Mjdj MIDI Morph";
-	public static final String PRODUCT_VERSION = "Beta 0.1.02";
+	public static final String PRODUCT_VERSION = "Beta 0.1.04";
 	public MorphCheckboxList morphCheckboxList;
 	JTextArea outputArea;
 	MidiDeviceCheckboxList inputList;
@@ -118,6 +118,14 @@ public class Main extends JFrameRedux {
 			for (MorphAdaptor morph : morphCheckboxList.getMorphs()) {
 				morph.getMorph().shutdown();
 				morph.saveMorphSettings();
+			}
+			for (DeviceWrapper device : Universe.instance.midiDriverManager.inputTransmitters) {
+				System.out.println("closing " + device.getName());
+				device.close();
+			}
+			for (DeviceWrapper device : Universe.instance.midiDriverManager.outputReceivers) {
+				System.out.println("closing " + device.getName());
+				device.close();
 			}
 			Settings.getInstance().save();
 			logTimer.cancel();
