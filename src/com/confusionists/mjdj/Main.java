@@ -25,6 +25,7 @@ import javax.swing.border.TitledBorder;
 
 import org.codehaus.groovy.runtime.StackTraceUtils;
 
+import com.confusionists.mjdj.fileIO.MorphLoaderGroovy;
 import com.confusionists.mjdj.fileIO.MorphLoaderJava;
 import com.confusionists.mjdj.midi.ServiceImpl;
 import com.confusionists.mjdj.settings.MorphAdaptor;
@@ -370,6 +371,8 @@ public class Main extends JFrameRedux {
 			List<Morph> morphs = new ArrayList<Morph>();
 			MorphLoaderJava loader = new MorphLoaderJava();
 			loader.load(morphs);
+			MorphLoaderGroovy loaderGroovy = new MorphLoaderGroovy();
+			loaderGroovy.load(morphs);
 
 			for (Morph morph : morphs) {
 				String morphName = "Unknown";

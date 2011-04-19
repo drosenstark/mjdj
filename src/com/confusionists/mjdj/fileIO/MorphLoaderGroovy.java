@@ -21,7 +21,6 @@ import com.confusionists.mjdj.ui.Logger;
 import com.confusionists.mjdjApi.morph.Morph;
 import com.confusionists.util.RecursiveFileList;
 
-@Deprecated
 /**
  * This could be used for dynamic loading, but in practice, the developer has an IDE or build process. Groovy classes are loaded as classes.
  */
@@ -31,7 +30,7 @@ public class MorphLoaderGroovy {
         assert (MorphLoaderJava.classLoader != null);
         // get all .class files in the directory
 
-        File[] files = RecursiveFileList.getList(ExternalDirectories.instance.morphsDir, "groovy");
+        File[] files = RecursiveFileList.getList(ExternalDirectories.instance.morphsDirGroovy, "groovy");
         for (File file : files) {
         	
             GroovyClassLoader loader = new GroovyClassLoader(MorphLoaderJava.classLoader);
@@ -44,7 +43,7 @@ public class MorphLoaderGroovy {
             } catch (InstantiationException ie) {
                 System.out.println("Could not instantiate " + file.getName() + ", could be abstract.");
             } catch (Exception e) {
-                Logger.log("Could not load Groovy translator " + file.getAbsolutePath().substring(ExternalDirectories.instance.morphsDir.getAbsolutePath().length()), e);
+                Logger.log("Could not load Groovy translator " + file.getAbsolutePath().substring(ExternalDirectories.instance.morphsDirGroovy.getAbsolutePath().length()), e);
             }
 
         }

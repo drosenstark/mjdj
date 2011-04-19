@@ -16,11 +16,13 @@ import com.confusionists.mjdj.ui.Logger;
 
 public class ExternalDirectories {
 	private static String DEFAULT_MORPHS_PATH = "./morphs";
+	private static String DEFAULT_MORPHS_GROOVY_PATH = "./morphs-groovy";
 	private static String DEFAULT_DEVICES_PATH = "./devices";
 	public File morphsDir = null;
 	public File devicesDir = null;
 	@Deprecated
 	public File morphsCompileDir;
+	public File morphsDirGroovy;
 	public static ExternalDirectories instance = null;
 
 
@@ -31,6 +33,7 @@ public class ExternalDirectories {
    static {
 		instance = new ExternalDirectories();
 		instance.morphsDir = checkDir(DEFAULT_MORPHS_PATH);
+		instance.morphsDirGroovy = checkDir(DEFAULT_MORPHS_GROOVY_PATH);
 		instance.devicesDir = checkDir(DEFAULT_DEVICES_PATH);
 	}
 
