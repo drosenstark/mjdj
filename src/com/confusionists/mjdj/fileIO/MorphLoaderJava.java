@@ -17,7 +17,6 @@ import java.net.URLClassLoader;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.confusionists.mjdj.morphs.nullConnection.NullConnection;
 import com.confusionists.mjdj.ui.Logger;
 import com.confusionists.mjdjApi.morph.Morph;
 import com.confusionists.util.RecursiveFileList;
@@ -32,7 +31,6 @@ public class MorphLoaderJava {
 		// get all .class files in the directory
 		File path = ExternalDirectories.instance.morphsDir;
 		load(path, morphs);
-		morphs.add(new NullConnection()); // this is the one morph that is actually compiled in to Mjdj
 	}
 	
 	private URL[] getClasspath() throws MalformedURLException {

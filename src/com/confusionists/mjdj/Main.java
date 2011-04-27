@@ -28,6 +28,7 @@ import org.codehaus.groovy.runtime.StackTraceUtils;
 import com.confusionists.mjdj.fileIO.MorphLoaderGroovy;
 import com.confusionists.mjdj.fileIO.MorphLoaderJava;
 import com.confusionists.mjdj.midi.ServiceImpl;
+import com.confusionists.mjdj.morphs.nullConnection.NullConnection;
 import com.confusionists.mjdj.settings.MorphAdaptor;
 import com.confusionists.mjdj.settings.Settings;
 import com.confusionists.mjdj.ui.*;
@@ -373,6 +374,8 @@ public class Main extends JFrameRedux {
 			loader.load(morphs);
 			MorphLoaderGroovy loaderGroovy = new MorphLoaderGroovy();
 			loaderGroovy.load(morphs);
+			morphs.add(new NullConnection()); // this is the one morph that is actually compiled in to Mjdj
+
 
 			for (Morph morph : morphs) {
 				String morphName = "Unknown";
