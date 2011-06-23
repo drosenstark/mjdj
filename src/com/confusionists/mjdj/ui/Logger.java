@@ -72,7 +72,7 @@ public class Logger {
 			} else if (shortMessage.getCommand() == ShortMessage.NOTE_ON) {
 				command = "Note On";
 			}
-			logThis.append("ShortMessage: command=" + command + ", channel=" + shortMessage.getChannel() + ", data1=" + shortMessage.getData1()
+			logThis.append("ShortMessage: command=" + command + ", channel=" + (shortMessage.getChannel()+1) + ", data1=" + shortMessage.getData1()
 					+ ", data2=" + shortMessage.getData2());
 		} else {
 			logThis.append("Message: " + Util.spitByteArrayAsHex(messageIn.getMessage().getMessage()));
