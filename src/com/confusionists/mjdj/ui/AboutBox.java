@@ -14,6 +14,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
+import java.util.Calendar;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -25,8 +26,8 @@ public class AboutBox extends JDialog implements ActionListener {
 	JButton buttonOkay = new JButton();
 	JLabel imageLabel = new JLabel();
 	JLabel labelProduct = new JLabel(Main.PRODUCT_NAME);
-	JLabel labelVersion = new JLabel(Main.PRODUCT_VERSION);
-	JLabel labelCopyright = new JLabel("Copyright (c) 2010 Confusionists, Inc.");
+	JLabel labelVersion = new JLabel(Main.PRODUCT_VERSION + " (Java " + System.getProperty("java.version") +")");
+	JLabel labelCopyright = new JLabel("Copyright (c) 2010-" + Calendar.getInstance().get(Calendar.YEAR) + " Confusionists, LLC");
 	JTextArea labelComments = new JTextArea("See www.confusionists.com/mjdj.\n\nOn Mac OSX, mmj MIDI library generously provided by \nhumatic.de. See http://www.humatic.de/htools/mmj.htm.");
 	ImageIcon image1 = new ImageIcon();
 
@@ -127,7 +128,7 @@ public class AboutBox extends JDialog implements ActionListener {
 		AboutBox dlg = new AboutBox(null);
 		dlg.setModal(true);
 		dlg.pack();
-		dlg.setSize(new Dimension(400, 250));
+		dlg.setSize(new Dimension(525, 250));
 		dlg.setVisible(true);
 		dlg.setResizable(false);
 	}
