@@ -86,16 +86,18 @@ class Monitor implements Receiver {
 			MessageWrapper msgWrapper = MessageWrapper.newInstance(message);
 			byte[] messageBytes = message.getMessage();
 			int firstByte = messageBytes[0] & 0xff;
-			if (firstByte != ShortMessage.TIMING_CLOCK && firstByte != ShortMessage.ACTIVE_SENSING) { // this is to check if it's clock
+			if (firstByte == ShortMessage.ACTIVE_SENSING) {
+				// do nothing
+			} else if (firstByte == ShortMessage.TIMING_CLOCK) {
+				if (wrapper.clockSource) 
+					Universe.instance.clockHandler.onClock();
+			}
+			else  { 
 				if (wrapper.isActive()) {
 					Logger.log(msgWrapper, wrapper);
 					wrapper.getService().morph(msgWrapper, wrapper.toString());
 				}
-			} else {
-				if (wrapper.clockSource) {
-					Universe.instance.clockHandler.onClock();
-				}
-			}
+			} 
 		} catch (Exception e) {
 			Logger.debugLog("Problem sending", e);
 		}
