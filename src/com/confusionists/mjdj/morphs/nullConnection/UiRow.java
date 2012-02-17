@@ -7,7 +7,7 @@ This program is free software: you can redistribute it and/or modify it under th
 See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>. 
 
 You may contact the author at mjdj_midi_morph [at] confusionists.com
-*/
+ */
 package com.confusionists.mjdj.morphs.nullConnection;
 
 import java.awt.Dimension;
@@ -28,29 +28,31 @@ class UiRow extends JPanel {
 	Ui ui;
 	JButton lessButton = new JButton("-");
 	JButton moreButton = new JButton("+");
-	
+
 	public UiRow(Ui ui, List<String> inDevices, List<String> outDevices) {
 		this.ui = ui;
-		MigLayout mig = new MigLayout();		
+		MigLayout mig = new MigLayout();
 		mig.setColumnConstraints("[][grow, center][][center][center]");
 		this.setLayout(mig);
-		
+
 		leftBox = new JComboBox(inDevices.toArray());
 		rightBox = new JComboBox(outDevices.toArray());
+		leftBox.setMaximumSize(new Dimension(200, 500));
+		rightBox.setMaximumSize(new Dimension(200, 500));
 		label = new JLabel("send to");
 		label.setAlignmentX(SwingConstants.CENTER);
-		
+
 		this.add(leftBox);
 		this.add(label);
 		this.add(rightBox);
-		
+
 		lessButton.setMaximumSize(new Dimension(20, 20));
 		lessButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				UiRow.this.ui.removeRow(UiRow.this);
 			}
 		});
-		
+
 		moreButton.setMaximumSize(new Dimension(20, 20));
 		this.add(lessButton);
 		this.add(moreButton);
@@ -59,54 +61,54 @@ class UiRow extends JPanel {
 				UiRow.this.ui.addRowAfter(UiRow.this);
 			}
 		});
-		
+
 	}
-	
+
 	public void setStatus(List<UiRow> list) {
 		int position = list.indexOf(this);
-		if (position == 0) lessButton.setVisible(false);
+		if (position == 0)
+			lessButton.setVisible(false);
 	}
-	
-	
+
 	public String getLeftName() {
-		return (String)leftBox.getSelectedItem();
+		return (String) leftBox.getSelectedItem();
 	}
-	
+
 	public String getRightName() {
-		return (String)rightBox.getSelectedItem();
+		return (String) rightBox.getSelectedItem();
 	}
-	
+
 	public Hashtable<String, String> getSerializable() {
 		Hashtable<String, String> retVal = new Hashtable<String, String>();
 		retVal.put("in", getLeftName());
 		retVal.put("out", getRightName());
 		return retVal;
 	}
-	
+
 	/* @returns: true if we had to add */
 	private boolean addItemIfDoesNotContain(JComboBox box, String lookingFor) {
 		boolean foundIn = false;
 		// not sure how to do contains
-		for (int i=0; i<box.getItemCount(); i++) {
-			String item = (String)box.getItemAt(i);
+		for (int i = 0; i < box.getItemCount(); i++) {
+			String item = (String) box.getItemAt(i);
 			if (item.equals(lookingFor)) {
 				foundIn = true;
 				break;
 			}
 		}
-		
+
 		if (!foundIn) {
 			box.addItem(lookingFor);
 			return true;
 		}
-		
+
 		return false;
 	}
-	
+
 	public void setSerializable(Hashtable<String, String> serialiable) {
 		String lookingForIn = serialiable.get("in");
 		String lookingForOut = serialiable.get("out");
-		
+
 		boolean deadLeft = addItemIfDoesNotContain(leftBox, lookingForIn);
 		boolean deadRight = addItemIfDoesNotContain(rightBox, lookingForOut);
 
@@ -114,16 +116,13 @@ class UiRow extends JPanel {
 			leftBox.setEnabled(false);
 			rightBox.setEnabled(false);
 		}
-			
-		
-		
+
 		leftBox.setSelectedItem(lookingForIn);
 		rightBox.setSelectedItem(lookingForOut);
 	}
-	
-	
+
 	@Override
 	public boolean isEnabled() {
-			return (leftBox.isEnabled() && rightBox.isEnabled());
+		return (leftBox.isEnabled() && rightBox.isEnabled());
 	}
 }

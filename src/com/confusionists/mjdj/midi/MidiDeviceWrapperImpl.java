@@ -109,7 +109,6 @@ public abstract class MidiDeviceWrapperImpl implements DeviceWrapper  {
 			tryThis = this.toString() + (i++);
 		}
 
-		System.out.println("Yeah found a new name! " + tryThis);
 		this.name = tryThis;
 		
 	}
