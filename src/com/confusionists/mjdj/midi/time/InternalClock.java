@@ -10,6 +10,7 @@ You may contact the author at mjdj_midi_morph [at] confusionists.com
 */
 package com.confusionists.mjdj.midi.time;
 
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -115,6 +116,12 @@ public class InternalClock extends AbstractTransmitterDeviceWrapper {
 		
 	}
 	
+	@Override
+	public void makeNewId(ArrayList<String> existingIds) {
+		throw new RuntimeException("How did we get here?");
+		
+		
+	}
 	
 	
 

@@ -11,6 +11,7 @@ You may contact the author at mjdj_midi_morph [at] confusionists.com
 package com.confusionists.mjdj.midi;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
@@ -125,23 +126,34 @@ public class MidiDriverManager {
 	}
 	
 	private void openTransmitter(TransmitterDeviceWrapper transmitter) throws DeviceUnavailableException {
-		if (nameExists(transmitter.toString(), true)) {
-			Logger.log("Cannot use device " + transmitter.toString() + ", name is already used.");
-		} else {
-			transmitter.open();
-			transmitter.setService(ServiceImpl.instance);
-			inputTransmitters.add(transmitter);
-		}
+		while (nameExists(transmitter.toString(), true)) {
+			transmitter.makeNewId(getExistingIds(true));
+//			Logger.log("Cannot use device " + receiver.toString() + ", name is already used.");
+		} 
+		transmitter.open();
+		transmitter.setService(ServiceImpl.instance);
+		inputTransmitters.add(transmitter);
 	}
 
-	private void openReceiver(ReceiverDeviceWrapper receiver) throws DeviceUnavailableException {
-		if (nameExists(receiver.toString(), false)) {
-			Logger.log("Cannot use device " + receiver.toString() + ", name is already used.");
-		} else {
-			receiver.open();
-			receiver.setService(ServiceImpl.instance);
-			outputReceivers.add(receiver);
+	private ArrayList<String> getExistingIds(boolean transmitters) {
+		List<? extends DeviceWrapper> things = transmitters ? this.inputTransmitters : this.outputReceivers;
+		ArrayList<String> retVal = new ArrayList<String>();
+		
+		for (DeviceWrapper midiDeviceWrapper : things) {
+			retVal.add(midiDeviceWrapper.toString());
 		}
+		
+		return retVal;
+	}
+	private void openReceiver(ReceiverDeviceWrapper receiver) throws DeviceUnavailableException {
+		while (nameExists(receiver.toString(), false)) {
+			receiver.makeNewId(getExistingIds(false));
+//			Logger.log("Cannot use device " + receiver.toString() + ", name is already used.");
+		} 
+		
+		receiver.open();
+		receiver.setService(ServiceImpl.instance);
+		outputReceivers.add(receiver);
 	}
 
 	private boolean nameExists(String name, boolean transmitter) {

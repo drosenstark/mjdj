@@ -10,6 +10,8 @@ You may contact the author at mjdj_midi_morph [at] confusionists.com
 */
 package com.confusionists.mjdj.midi;
 
+import java.util.ArrayList;
+
 import javax.sound.midi.MidiDevice;
 
 import com.confusionists.mjdjApi.midiDevice.DeviceUnavailableException;
@@ -89,4 +91,28 @@ public abstract class MidiDeviceWrapperImpl implements DeviceWrapper  {
     public void setName(String name) {
         this.name = name;
     }
+    
+    
+    private boolean nameExistsInList(String name, ArrayList<String> existingIds) {
+    		for (String existingId : existingIds) {
+    			if (existingId.equals(name))
+    				return true;
+    		}
+    		
+    		return false;
+    		
+    }
+	public void makeNewId(ArrayList<String> existingIds) {
+		int i=2;
+		String tryThis = this.toString();
+		while (this.nameExistsInList(tryThis, existingIds)) {
+			tryThis = this.toString() + (i++);
+		}
+
+		System.out.println("Yeah found a new name! " + tryThis);
+		this.name = tryThis;
+		
+	}
+    
+    
 }
