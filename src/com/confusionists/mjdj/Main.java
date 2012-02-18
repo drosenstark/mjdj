@@ -43,7 +43,7 @@ import com.confusionists.swing.SwingOps;
 public class Main extends JFrameRedux {
 
 	public static final String PRODUCT_NAME = "Mjdj MIDI Morph";
-	public static final String PRODUCT_VERSION = "Beta 0.1.07";
+	public static final String PRODUCT_VERSION = "Beta 0.1.08";
 	public MorphCheckboxList morphCheckboxList;
 	JTextArea outputArea;
 	MidiDeviceCheckboxList inputList;
@@ -61,7 +61,7 @@ public class Main extends JFrameRedux {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 			System.setProperty("apple.laf.useScreenMenuBar", "true");
 			com.confusionists.mjdj.Main frame = Universe.instance.main = new Main();
-			frame.setSize(900, 600);
+			frame.setSize(1024, 768);
 			frame.setTitle(PRODUCT_NAME + " " + PRODUCT_VERSION);
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			frame.setup();
@@ -276,14 +276,14 @@ public class Main extends JFrameRedux {
 
 		inputList = new MidiDeviceCheckboxList("Input MIDI devices");
 		scroller = getTitledScroller(inputList, inputList.getName());
-		scroller.setMinimumSize(new Dimension(250, 50));
-		scroller.setPreferredSize(new Dimension(250, 100));
+		scroller.setMinimumSize(new Dimension(350, 50));
+		scroller.setPreferredSize(new Dimension(350, 100));
 		getContentPane().add(scroller, BorderLayout.WEST);
 
 		outputList = new MidiDeviceCheckboxList("Ouput MIDI devices");
 		scroller = getTitledScroller(outputList, outputList.getName());
-		scroller.setMinimumSize(new Dimension(250, 50));
-		scroller.setPreferredSize(new Dimension(250, 100));
+		scroller.setMinimumSize(new Dimension(350, 50));
+		scroller.setPreferredSize(new Dimension(350, 100));
 		getContentPane().add(scroller, BorderLayout.EAST);
 
 		morphCheckboxList = new MorphCheckboxList();
@@ -308,7 +308,7 @@ public class Main extends JFrameRedux {
 		dlg.setLocation((frmSize.width - dlgSize.width) / 2 + loc.x, (frmSize.height - dlgSize.height) / 2 + loc.y);
 		dlg.setModal(true);
 		dlg.pack();
-		dlg.setSize(new Dimension(400, 250));
+		dlg.setSize(new Dimension(600, 250));
 		dlg.setVisible(true);
 		dlg.setResizable(false);
 

@@ -37,8 +37,8 @@ class UiRow extends JPanel {
 
 		leftBox = new JComboBox(inDevices.toArray());
 		rightBox = new JComboBox(outDevices.toArray());
-		leftBox.setMaximumSize(new Dimension(200, 500));
-		rightBox.setMaximumSize(new Dimension(200, 500));
+		leftBox.setMaximumSize(new Dimension(550, 500));
+		rightBox.setMaximumSize(new Dimension(550, 500));
 		label = new JLabel("send to");
 		label.setAlignmentX(SwingConstants.CENTER);
 

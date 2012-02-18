@@ -42,7 +42,7 @@ public class Ui extends JFrame {
 		this.inDevices = inDevices;
 		this.outDevices = outDevices;
 		
-		setSize(600, 600);
+		// SIZE is not set here, but rather check 		leftBox.setMaximumSize in the UIRow... we get it from them
 		
 		this.getContentPane().setLayout(new BoxLayout(this.getContentPane(),BoxLayout.Y_AXIS));
 		

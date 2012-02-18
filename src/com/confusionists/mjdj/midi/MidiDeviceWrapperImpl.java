@@ -25,12 +25,29 @@ public abstract class MidiDeviceWrapperImpl implements DeviceWrapper  {
     private MjdjService service;
     private boolean active = false;
 
+    private String truncate(String name, boolean truncateBeginning, int maxLength) {
+    		if (name.length() > maxLength) {
+    			if (!truncateBeginning) {
+    				name = name.substring(0, maxLength);
+    				return name + "É";
+    			} else {
+    				int startIndex = name.length() - maxLength;
+    				name = name.substring(startIndex, name.length() - startIndex);
+    				return "É" + name;
+    			}
+    			
+    		} else
+    			return name;
+    	
+    }
     public MidiDeviceWrapperImpl(MidiDevice device) {
     		if (device == null)
     			return;
         MidiDevice.Info info = device.getDeviceInfo();
         this.device = device;
-        setName(info.getVendor() + " - " + info.getName());
+        String leftName = truncate(info.getVendor(), false, 40);
+        String rightName = truncate(info.getName(), true, 40);
+        setName(leftName + " - " + rightName);
     }
 
 	public void setService(MjdjService service) {
