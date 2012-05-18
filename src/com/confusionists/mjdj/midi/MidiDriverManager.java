@@ -11,7 +11,6 @@ You may contact the author at mjdj_midi_morph [at] confusionists.com
 package com.confusionists.mjdj.midi;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
