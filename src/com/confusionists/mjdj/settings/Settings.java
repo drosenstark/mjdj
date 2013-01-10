@@ -25,6 +25,7 @@ public class Settings  {
 	public Hashtable<String, MorphAdaptor> morphAdaptors = new Hashtable<String, MorphAdaptor>(); 
 	public String clockSourceCombo;
 	public boolean doNotUseComSunDrivers;
+	public boolean lockScreen;
 	
 	public static Settings getInstance() {
 		return getInstance(false, false);

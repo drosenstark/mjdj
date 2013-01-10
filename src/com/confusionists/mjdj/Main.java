@@ -323,6 +323,8 @@ public class Main extends JFrameRedux {
 		Logger.log(this.getTitle() + " starting, JVM: " + System.getProperty("java.version")
 				+ ".\nNote: this log is asynchronous (NOT in realtime) so using debug should not affect performance (much).");
 		
+		setLocked(Settings.getInstance().lockScreen);
+		
 		inited = true;
 	}
 
@@ -441,16 +443,19 @@ public class Main extends JFrameRedux {
 
 	}
 	
-	
-	public void flipScreenProtector() {
-		boolean enable = !this.morphCheckboxList.isEnabled();
-		if (enable)
+	private void setLocked(boolean locked) {
+		if (!locked)
 			this.lockButton.setText("Lock");
 		else
 			this.lockButton.setText("Unlock");
-		this.morphCheckboxList.setEnabled(enable);
-		this.inputList.setEnabled(enable);
-		this.outputList.setEnabled(enable);
-		
+		this.morphCheckboxList.setEnabled(!locked);
+		this.inputList.setEnabled(!locked);
+		this.outputList.setEnabled(!locked);
+		Settings.getInstance().lockScreen = locked;
+	}
+	
+	public void flipScreenProtector() {
+		boolean enable = !this.morphCheckboxList.isEnabled();
+		setLocked(!enable);
 	}
 }
