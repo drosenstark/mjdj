@@ -1,0 +1,31 @@
+<launch4jConfig>
+  <dontWrapJar>true</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>./lib/Mjdj.jar</jar>
+  <outfile>/dans-data/java/Mjdj/MjdjOnWindows/mjdj.exe</outfile>
+  <errTitle></errTitle>
+  <cmdLine></cmdLine>
+  <chdir>./</chdir>
+  <priority>normal</priority>
+  <downloadUrl>http://java.com/download</downloadUrl>
+  <supportUrl></supportUrl>
+  <customProcName>false</customProcName>
+  <stayAlive>false</stayAlive>
+  <manifest></manifest>
+  <icon></icon>
+  <classPath>
+    <mainClass>com.confusionists.mjdj.Main</mainClass>
+    <cp>./lib/google-collect-1.0.jar</cp>
+    <cp>./lib/groovy-all-2.0.6.jar</cp>
+    <cp>./lib/miglayout-3.7.1-swing.jar</cp>
+    <cp>./lib/MjdjApi.jar</cp>
+    <cp>./lib/xpp.jar</cp>
+    <cp>./lib/xstream.jar</cp>
+  </classPath>
+  <jre>
+    <path></path>
+    <minVersion>1.5.0</minVersion>
+    <maxVersion></maxVersion>
+    <jdkPreference>preferJre</jdkPreference>
+  </jre>
+</launch4jConfig>
