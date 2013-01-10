@@ -48,6 +48,7 @@ class UiRow extends JPanel {
 
 		lessButton.setMaximumSize(new Dimension(20, 20));
 		lessButton.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				UiRow.this.ui.removeRow(UiRow.this);
 			}
@@ -57,6 +58,7 @@ class UiRow extends JPanel {
 		this.add(lessButton);
 		this.add(moreButton);
 		moreButton.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				UiRow.this.ui.addRowAfter(UiRow.this);
 			}

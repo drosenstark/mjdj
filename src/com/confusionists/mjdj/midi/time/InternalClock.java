@@ -18,7 +18,7 @@ import javax.sound.midi.ShortMessage;
 
 import com.confusionists.mjdj.Universe;
 import com.confusionists.mjdj.ui.InternalClockUi;
-import com.confusionists.mjdjApi.midi.ShortMessageWrapper;
+import com.confusionists.mjdjApi.midi.MessageWrapper;
 import com.confusionists.mjdjApi.midiDevice.AbstractTransmitterDeviceWrapper;
 import com.confusionists.mjdjApi.midiDevice.DeviceUnavailableException;
 
@@ -63,7 +63,7 @@ public class InternalClock extends AbstractTransmitterDeviceWrapper {
 	
 	private void start() {
 		close(); // kill any old timers
-		float bpm = (float)this.bpm;
+		float bpm = this.bpm;
 
 		// milliseconds are too imprecise to do this, so we use a small number
 		long smallTickMs = 1; // this needs to be much finer than (1000f/(bpm/60f))/24f)  since the timers do not fire each other
@@ -99,7 +99,7 @@ public class InternalClock extends AbstractTransmitterDeviceWrapper {
 			ShortMessage message = new ShortMessage();
 			message.setMessage(ShortMessage.TIMING_CLOCK);
 			// TODO: allow choosing ports for this
-			service.send(ShortMessageWrapper.newInstance(message));
+			service.send(MessageWrapper.newInstance(message));
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}

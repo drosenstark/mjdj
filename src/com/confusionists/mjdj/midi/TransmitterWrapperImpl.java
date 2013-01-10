@@ -54,10 +54,12 @@ public class TransmitterWrapperImpl extends MidiDeviceWrapperImpl implements Tra
 		}
 	}
 
+	@Override
 	public boolean isClockSource() {
 		return clockSource;
 	}
 
+	@Override
 	public void setClockSource(boolean value) {
 		this.clockSource = value;
 
@@ -78,9 +80,11 @@ class Monitor implements Receiver {
 		this.wrapper = wrapper;
 	}
 
+	@Override
 	public void close() {
 	}
 
+	@Override
 	public void send(MidiMessage message, long timeStamp) {
 		try {
 			MessageWrapper msgWrapper = MessageWrapper.newInstance(message);

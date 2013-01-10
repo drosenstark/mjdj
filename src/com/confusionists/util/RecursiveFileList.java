@@ -61,6 +61,7 @@ class ExtensionAndDirectoryFilter implements FilenameFilter {
 		this.extension = extension;
 	}
 
+	@Override
 	public boolean accept(File dir, String filename) {
 		if (new File(dir, filename).isDirectory())
 			return true;

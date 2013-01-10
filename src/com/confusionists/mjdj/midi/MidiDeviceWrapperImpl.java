@@ -50,10 +50,12 @@ public abstract class MidiDeviceWrapperImpl implements DeviceWrapper  {
         setName(leftName + " - " + rightName);
     }
 
+	@Override
 	public void setService(MjdjService service) {
 		this.service = service;
 	}
 	
+	@Override
 	public MjdjService getService() {
 		return service;
 	}
@@ -61,21 +63,24 @@ public abstract class MidiDeviceWrapperImpl implements DeviceWrapper  {
     /* (non-Javadoc)
 	 * @see com.confusionists.mjdj.midi.DeviceWrapper#setActive(boolean)
 	 */
-    public void setActive(boolean active) {
+    @Override
+	public void setActive(boolean active) {
         this.active = active;
     }
 
     /* (non-Javadoc)
 	 * @see com.confusionists.mjdj.midi.DeviceWrapper#isActive()
 	 */
-    public boolean isActive() {
+    @Override
+	public boolean isActive() {
         return active;
     }
 
     /* (non-Javadoc)
 	 * @see com.confusionists.mjdj.midi.DeviceWrapper#close()
 	 */
-    public void close() {
+    @Override
+	public void close() {
     		if (device == null) return;
         if (device.isOpen()) {
             //device.close();
@@ -85,7 +90,8 @@ public abstract class MidiDeviceWrapperImpl implements DeviceWrapper  {
     /* (non-Javadoc)
 	 * @see com.confusionists.mjdj.midi.DeviceWrapper#open()
 	 */
-    public abstract void open() throws DeviceUnavailableException;
+    @Override
+	public abstract void open() throws DeviceUnavailableException;
 
     /* (non-Javadoc)
 	 * @see com.confusionists.mjdj.midi.DeviceWrapper#toString()
@@ -98,7 +104,8 @@ public abstract class MidiDeviceWrapperImpl implements DeviceWrapper  {
     /* (non-Javadoc)
 	 * @see com.confusionists.mjdj.midi.DeviceWrapper#getName()
 	 */
-    public String getName() {
+    @Override
+	public String getName() {
         return name;
     }
 
@@ -119,6 +126,7 @@ public abstract class MidiDeviceWrapperImpl implements DeviceWrapper  {
     		return false;
     		
     }
+	@Override
 	public void makeNewId(ArrayList<String> existingIds) {
 		int i=2;
 		String tryThis = this.toString();

@@ -61,6 +61,7 @@ public class MidiDeviceCheckbox extends JCheckBox implements ChangeListener, Rig
 		this.wrapper = null;
 	}
 
+	@Override
 	public void stateChanged(ChangeEvent e) {
 		boolean valid = validateSelection();
 		if (!valid) {

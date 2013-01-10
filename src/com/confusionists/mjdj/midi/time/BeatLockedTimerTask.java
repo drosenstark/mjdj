@@ -48,7 +48,7 @@ public class BeatLockedTimerTask {
 	}
 	
 	private void scheduleInMilliseconds() {
-		long msAfterBeat = (long) (afterBeat * (float) Universe.instance.clockHandler.differenceInMs);
+		long msAfterBeat = (long) (afterBeat * Universe.instance.clockHandler.differenceInMs);
 		msAfterBeat = Math.max(0, msAfterBeat - 2); // 2ms of latency
 		Universe.instance.centralTimer.schedule(task, msAfterBeat);
 	}

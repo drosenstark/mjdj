@@ -20,6 +20,7 @@ public class MorphAdaptor implements Comparable<MorphAdaptor> {
 	private boolean dead;
 	private Object serializablePiece; // the Morph uses this to store its settings
 	
+	@Override
 	public int compareTo(MorphAdaptor o) {
 		if (o.morph instanceof NullConnection)
 			return -1;

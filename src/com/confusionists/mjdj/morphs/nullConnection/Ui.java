@@ -64,6 +64,7 @@ public class Ui extends JFrame {
 		
 		buttonApply.addActionListener(new ActionListener() {
 			
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				Ui.this.close();
 				
@@ -72,6 +73,7 @@ public class Ui extends JFrame {
 		
 		buttonUndo.addActionListener(new ActionListener() {
 			
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				Ui.this.undo();
 				

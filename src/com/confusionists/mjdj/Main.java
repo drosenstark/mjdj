@@ -165,6 +165,7 @@ public class Main extends JFrameRedux {
 		toolBar.add(button);
 		button.addActionListener(new java.awt.event.ActionListener() {
 
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				MorphCheckboxList.instance.moveSelectedMorph(true);
 			}
@@ -174,6 +175,7 @@ public class Main extends JFrameRedux {
 		toolBar.add(button);
 		button.addActionListener(new java.awt.event.ActionListener() {
 
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				MorphCheckboxList.instance.moveSelectedMorph(false);
 			}
@@ -186,6 +188,7 @@ public class Main extends JFrameRedux {
 		button = new JButton("Reload Morphs");
 		button.addActionListener(new java.awt.event.ActionListener() {
 
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				rescanMorphs();
 			}
@@ -195,6 +198,7 @@ public class Main extends JFrameRedux {
 		button = new JButton("Clear Output");
 		button.addActionListener(new java.awt.event.ActionListener() {
 
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				outputArea.setText("");
 				outputArea.setCaretPosition(0);
@@ -218,6 +222,7 @@ public class Main extends JFrameRedux {
 		menuItem.setText("Rescan MIDI (Broken)");
 		menuItem.addActionListener(new java.awt.event.ActionListener() {
 
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				rescanMidi();
 			}
@@ -228,6 +233,7 @@ public class Main extends JFrameRedux {
 		menuItem.setText("Rescan Morphs");
 		menuItem.addActionListener(new java.awt.event.ActionListener() {
 
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				rescanMorphs();
 			}
@@ -238,6 +244,7 @@ public class Main extends JFrameRedux {
 		menuItem.setText("Compile Java Morphs (and reload)");
 		menuItem.addActionListener(new java.awt.event.ActionListener() {
 
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				rescanMorphs();
 			}
@@ -248,6 +255,7 @@ public class Main extends JFrameRedux {
 		menuItem.setText("Diagnostics");
 		menuItem.addActionListener(new java.awt.event.ActionListener() {
 
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				runDiagnostics();
 			}
@@ -267,6 +275,7 @@ public class Main extends JFrameRedux {
 			JMenuItem menuAbout = new JMenuItem("About Mjdj MIDI Morph");
 			menuAbout.addActionListener(new ActionListener() {
 
+				@Override
 				public void actionPerformed(ActionEvent e) {
 					Main.this.onAboutClick();
 				}

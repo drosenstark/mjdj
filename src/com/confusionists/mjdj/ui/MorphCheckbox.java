@@ -46,6 +46,7 @@ public class MorphCheckbox extends JCheckBox implements ChangeListener, RightCli
 	}
 
 	// TODO probably needs to get pushed down to a box subclass
+	@Override
 	public void stateChanged(ChangeEvent e) {
 		Settings.getInstance().morphAdaptors.get(morph.getMorph().getName()).setActive(this.isSelected());
 	}

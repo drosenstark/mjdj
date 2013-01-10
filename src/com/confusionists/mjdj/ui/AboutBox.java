@@ -50,8 +50,6 @@ public class AboutBox extends JDialog implements ActionListener {
 		ImageIcon icon = null;
 		if (url == null) {
 			icon = new ImageIcon(filename);
-			if (icon == null && filename2 != null)
-				icon = new ImageIcon(filename2);
 		}
 		else
 			icon = new ImageIcon(url);
@@ -100,6 +98,7 @@ public class AboutBox extends JDialog implements ActionListener {
 		
 		buttonOkay.addActionListener(new ActionListener() {
 			
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				AboutBox.this.setVisible(false);
 			}
@@ -118,6 +117,7 @@ public class AboutBox extends JDialog implements ActionListener {
 	 *
 	 * @param actionEvent ActionEvent
 	 */
+	@Override
 	public void actionPerformed(ActionEvent actionEvent) {
 		if (actionEvent.getSource() == buttonOkay) {
 			dispose();

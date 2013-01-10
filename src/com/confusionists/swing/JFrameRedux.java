@@ -48,6 +48,7 @@ public class JFrameRedux extends JFrame implements WindowListener, WindowFocusLi
 		jMenuFile.setText("File");
 		jMenuFileExit.setText("Exit");
 		jMenuFileExit.addActionListener(new ActionListener()  {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				jMenuFileExit_actionPerformed(e);
 			}
@@ -66,6 +67,7 @@ public class JFrameRedux extends JFrame implements WindowListener, WindowFocusLi
 				name = info[x].getName();
 			JMenuItem item = new JMenuItem(name);
 			item.addActionListener(new java.awt.event.ActionListener() {
+				@Override
 				public void actionPerformed(ActionEvent e) {
 					updateLookAndFeel(className);
 				}
@@ -94,24 +96,31 @@ public class JFrameRedux extends JFrame implements WindowListener, WindowFocusLi
 		}
 	}
 	
+	@Override
 	public void windowActivated(WindowEvent e) {
 	}
 
+	@Override
 	public void windowClosed(WindowEvent e) {
 	}
 
+	@Override
 	public void windowClosing(WindowEvent e) {
 	}
 
+	@Override
 	public void windowDeactivated(WindowEvent e) {
 	}
 
+	@Override
 	public void windowDeiconified(WindowEvent e) {
 	}
 
+	@Override
 	public void windowIconified(WindowEvent e) {
 	}
 
+	@Override
 	public void windowOpened(WindowEvent e) {
 	}
 
@@ -138,16 +147,19 @@ public class JFrameRedux extends JFrame implements WindowListener, WindowFocusLi
 
 	}
 
+	@Override
 	public void windowGainedFocus(WindowEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	@Override
 	public void windowLostFocus(WindowEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
+	@Override
 	public void windowStateChanged(WindowEvent e) {
 		// TODO Auto-generated method stub
 		

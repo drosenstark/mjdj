@@ -30,7 +30,8 @@ public class ReceiverWrapperImpl extends MidiDeviceWrapperImpl implements Receiv
     @Override
 	public void setService(MjdjService service) {    }
 
-    public void send(MessageWrapper message) {
+    @Override
+	public void send(MessageWrapper message) {
         receiver.send(message.getMessage(), device.getMicrosecondPosition()); // I have tried everything but nothing works, -1 is just as good as anything
     }
 

@@ -101,11 +101,12 @@ public class OSXAdapter implements InvocationHandler {
     		if (!isMac)
     			return;
         try {
-            Class applicationClass = Class.forName("com.apple.eawt.Application");
+            @SuppressWarnings("rawtypes")
+			Class applicationClass = Class.forName("com.apple.eawt.Application");
             if (macOSXApplication == null) {
                 macOSXApplication = applicationClass.getConstructor((Class[])null).newInstance((Object[])null);
             }
-            Class applicationListenerClass = Class.forName("com.apple.eawt.ApplicationListener");
+            Class<?> applicationListenerClass = Class.forName("com.apple.eawt.ApplicationListener");
             Method addListenerMethod = applicationClass.getDeclaredMethod("addApplicationListener", new Class[] { applicationListenerClass });
             // Create a proxy object around this handler that can be reflectively added as an Apple ApplicationListener
             Object osxAdapterProxy = Proxy.newProxyInstance(OSXAdapter.class.getClassLoader(), new Class[] { applicationListenerClass }, adapter);
@@ -140,7 +141,8 @@ public class OSXAdapter implements InvocationHandler {
     
     // InvocationHandler implementation
     // This is the entry point for our proxy object; it is called every time an ApplicationListener method is invoked
-    public Object invoke (Object proxy, Method method, Object[] args) throws Throwable {
+    @Override
+	public Object invoke (Object proxy, Method method, Object[] args) throws Throwable {
         if (isCorrectMethod(method, args)) {
             boolean handled = callTarget(args[0]);
             setApplicationEventHandled(args[0], handled);

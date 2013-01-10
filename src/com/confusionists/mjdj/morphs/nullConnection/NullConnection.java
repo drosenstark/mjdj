@@ -22,10 +22,12 @@ public class NullConnection extends AbstractMorph {
 	Ui ui = null;
 	
 
+	@Override
 	public String getName() {
 		return "Null-Connection (Right-Click to Open)";
 	}
  
+	@Override
 	public void init() throws DeviceNotFoundException {
 		if (ui == null) {
 			getInDeviceNames().add(0, ANY);
@@ -41,6 +43,7 @@ public class NullConnection extends AbstractMorph {
 	}
 	
 
+	@Override
 	public boolean process(MessageWrapper message, String from) throws Exception {
 		// we should put in a safeguard for not sending twice, but for now we'll leave it alone
 		for (UiRow row : ui.rows) {
@@ -55,11 +58,13 @@ public class NullConnection extends AbstractMorph {
 		return true;
 	}
 
+	@Override
 	public String diagnose() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	@Override
 	public Object getSerializable() { 
 		ArrayList<Hashtable<String, String>> retVal = new ArrayList<Hashtable<String, String>>(); // this monstrosity is because XStream can't get access to our classes since they're not loaded
 		if (ui == null) return null; // for testing mostly
@@ -69,6 +74,7 @@ public class NullConnection extends AbstractMorph {
 		return retVal;
 	}
 
+	@Override
 	@SuppressWarnings("unchecked")
 	public void setSerializable(Object value) {
 		if (value == null)
