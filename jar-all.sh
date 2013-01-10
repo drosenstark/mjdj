@@ -16,7 +16,7 @@ rm -rf ./MjdjMidiMorph/devices/*
 
 # copy the compiled morphs
 cp -R ./morphs/ ./MjdjMidiMorph/morphs/
-cp -R ./morphs-groovy ./MjdjMidiMorph/morphs-groovy
+cp -R ./morphs-groovy ./MjdjMidiMorph/
 #cp -R ./devices/ ./MjdjMidiMorph/devices/
 
 # repeat for Windows: remove the old morphs and devices
@@ -26,6 +26,6 @@ rm -rf ./MjdjOnWindows/devices/*
 
 # repeat for Windows: copy the compiled morphs
 cp -R ./morphs/ ./MjdjOnWindows/morphs/
-cp -R ./morphs-groovy ./MjdjOnWindows/morphs-groovy
+cp -R ./morphs-groovy ./MjdjOnWindows/
 #cp -R ./devices/ ./MjdjOnWindows/devices/
 
