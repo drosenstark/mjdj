@@ -118,5 +118,11 @@ public class MorphCheckboxList extends CheckBoxList {
 		throw new NullPointerException("Error 22622256"); // can't happen in
 															// theory
 	}
+	
+	@Override
+	public void setEnabled(boolean enabled) {
+		// TODO Auto-generated method stub
+		super.setEnabled(enabled);
+	}
 
 }

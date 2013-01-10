@@ -10,15 +10,14 @@ You may contact the author at mjdj_midi_morph [at] confusionists.com
 */
 package com.confusionists.mjdj;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.Point;
+import java.util.*;
+import java.util.List;
+import java.util.Timer;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
-import java.util.*;
-import java.util.Timer;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
@@ -46,10 +45,12 @@ public class Main extends JFrameRedux {
 	public static final String PRODUCT_VERSION = "Beta 0.1.08";
 	public MorphCheckboxList morphCheckboxList;
 	JTextArea outputArea;
+	JButton lockButton;
 	MidiDeviceCheckboxList inputList;
 	MidiDeviceCheckboxList outputList;
 	JMenu jMenuTools = new JMenu();
 	JToolBar toolBar = new JToolBar();
+	
 	ClockSourceCombo clockSourceCombo = new ClockSourceCombo();
 	public JToggleButton debugToggle;
 	private Timer logTimer = new Timer();
@@ -158,6 +159,20 @@ public class Main extends JFrameRedux {
 		toolBar.add(clockSourceCombo);
 
 		toolBar.add(Box.createHorizontalGlue());
+		
+
+		lockButton = new JButton("Lock");
+		toolBar.add(lockButton);
+		lockButton.addActionListener(new java.awt.event.ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Main.this.flipScreenProtector();
+			}
+		});
+		
+		
+		
 		toolBar.add(Box.createHorizontalGlue());
 
 		JButton button;
@@ -218,8 +233,9 @@ public class Main extends JFrameRedux {
 		jMenuTools.setText("Tools");
 
 		JMenuItem menuItem;
+		
 		menuItem = new JMenuItem();
-		menuItem.setText("Rescan MIDI (Broken)");
+		menuItem.setText("Rescan MIDI");
 		menuItem.addActionListener(new java.awt.event.ActionListener() {
 
 			@Override
@@ -227,7 +243,8 @@ public class Main extends JFrameRedux {
 				rescanMidi();
 			}
 		});
-		jMenuTools.add(menuItem);
+		// broken
+		//  jMenuTools.add(menuItem);
 
 		menuItem = new JMenuItem();
 		menuItem.setText("Rescan Morphs");
@@ -422,5 +439,18 @@ public class Main extends JFrameRedux {
 			throw new RuntimeException(e);
 		}
 
+	}
+	
+	
+	public void flipScreenProtector() {
+		boolean enable = !this.morphCheckboxList.isEnabled();
+		if (enable)
+			this.lockButton.setText("Lock");
+		else
+			this.lockButton.setText("Unlock");
+		this.morphCheckboxList.setEnabled(enable);
+		this.inputList.setEnabled(enable);
+		this.outputList.setEnabled(enable);
+		
 	}
 }

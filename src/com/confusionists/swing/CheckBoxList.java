@@ -30,6 +30,8 @@ public class CheckBoxList extends JList {
 		addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
+				if (!CheckBoxList.this.isEnabled())
+					return;
 				int index = locationToIndex(e.getPoint());
 				if (index != -1) {
 					if (e.getButton() == MouseEvent.BUTTON1) {

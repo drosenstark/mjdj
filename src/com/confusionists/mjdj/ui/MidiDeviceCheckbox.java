@@ -86,6 +86,7 @@ public class MidiDeviceCheckbox extends JCheckBox implements ChangeListener, Rig
 	private boolean validateSelection() {
 		if (initializing)
 			return true;
+		
 		if (Settings.getBoolean(getSettings(true), this.getName()) && ((Boolean) this.isSelected()).booleanValue()) {
 			int result = JOptionPane.showConfirmDialog(Universe.instance.main, "About to turn " + this.getName() + " on. The opposite port with the same name  is on.\n" + 
 					"This could create a feedback loop. Do it anyway?", "Mjdj - Confirm Selection", JOptionPane.OK_CANCEL_OPTION);
@@ -99,6 +100,14 @@ public class MidiDeviceCheckbox extends JCheckBox implements ChangeListener, Rig
 	@Override
 	public void onRightClick() {
 		wrapper.toggleUi();
+	}
+	
+	@Override
+	public void setEnabled(boolean b) {
+		boolean originalInitializing = initializing;
+		initializing = true;
+		super.setEnabled(b);
+		initializing = originalInitializing;
 	}
 	
 
