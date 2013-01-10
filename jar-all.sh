@@ -12,22 +12,22 @@ mv *.jar ./MjdjMidiMorph/Mjdj.app/Contents/Resources/Java/
 
 # remove the old morphs and devices
 rm -rf ./MjdjMidiMorph/morphs/*
-rm -rf ./MjdjMidiMorph/morphs-groovy/*
+rm  ./MjdjMidiMorph/morphs-groovy
 rm -rf ./MjdjMidiMorph/devices/*
 
 
 # copy the compiled morphs
 cp -R ./morphs/ ./MjdjMidiMorph/morphs/
-cp -R ./morphs-groovy/ ./MjdjMidiMorph/morphs-groovy/
+cp -R ./morphs-groovy ./MjdjMidiMorph/
 #cp -R ./devices/ ./MjdjMidiMorph/devices/
 
 # repeat for Windows: remove the old morphs and devices
 rm -rf ./MjdjOnWindows/morphs/*
-rm -rf ./MjdjOnWindows/morphs-groovy/*
+rm  ./MjdjOnWindows/morphs-groovy
 rm -rf ./MjdjOnWindows/devices/*
 
 # repeat for Windows: copy the compiled morphs
 cp -R ./morphs/ ./MjdjOnWindows/morphs/
-cp -R ./morphs-groovy/ ./MjdjOnWindows/morphs-groovy/
+cp -R ./morphs-groovy ./MjdjOnWindows/
 #cp -R ./devices/ ./MjdjOnWindows/devices/
 
