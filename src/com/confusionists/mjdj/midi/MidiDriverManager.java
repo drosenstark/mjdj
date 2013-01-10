@@ -100,14 +100,18 @@ public class MidiDriverManager {
 		return providerPackagePrefix.substring(0, secondPeriod).equals("com.sun");
 	}
 	
+	static boolean warned = false;
+	
 	private boolean useDevice(MidiDevice device) {
 		boolean retVal;
 		if (device instanceof Sequencer || device instanceof Synthesizer)
 			return false;
 		if (Settings.getInstance().doNotUseComSunDrivers) {
 			retVal = !isDeviceFromSunProviders(device);
-			if (!retVal)
-				Logger.log("Skipping Sun drivers for device  " + device.getDeviceInfo().getName() + " (per settings file)");
+			if (!retVal && !warned) {
+				Logger.log("Skipping Sun drivers  (per settings file)");
+				warned = true;
+			}
 			return retVal;
 		}
 		else {
@@ -117,7 +121,10 @@ public class MidiDriverManager {
 				if (isDeviceFromSunProviders(device))
 					return true;
 				else {
-					Logger.log("Non-default drivers for device  " + device.getDeviceInfo().getName() + " skipped as Sun drivers were found (per settings file)");
+					if (!warned) {
+						Logger.log("Non-default drivers skipped as Sun drivers were found (per settings file)");
+						warned = true;
+					}
 					return false;
 				}
 			} 
