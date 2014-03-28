@@ -45,6 +45,8 @@ public class MorphLoaderGroovy {
             } catch (Exception e) {
                 Logger.log("Could not load Groovy translator " + file.getAbsolutePath().substring(ExternalDirectories.instance.morphsDirGroovy.getAbsolutePath().length()), e);
             }
+            
+            loader.close();
 
         }
     }
