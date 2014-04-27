@@ -43,6 +43,7 @@ public class Main extends JFrameRedux {
 
 	public static final String PRODUCT_NAME = "Mjdj MIDI Morph";
 	public static final String PRODUCT_VERSION = "Beta 0.2.00f";
+	public static boolean isDevelopment = false;
 	public MorphCheckboxList morphCheckboxList;
 	JTextArea outputArea;
 	JButton lockButton;
@@ -59,6 +60,8 @@ public class Main extends JFrameRedux {
 
 	public static void main(String[] args) {
 		try {
+			if (args.length > 0 && args[0].equals("development"))
+				isDevelopment = true;
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 			System.setProperty("apple.laf.useScreenMenuBar", "true");
 			com.confusionists.mjdj.Main frame = Universe.instance.main = new Main();

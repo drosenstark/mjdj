@@ -11,10 +11,8 @@ You may contact the author at mjdj_midi_morph [at] confusionists.com
 package com.confusionists.mjdj.fileIO;
 
 import java.io.File;
-import java.net.URISyntaxException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
+import com.confusionists.mjdj.Main;
 import com.confusionists.mjdj.ui.Logger;
 
 public class ExternalDirectories {
@@ -23,7 +21,6 @@ public class ExternalDirectories {
 	private static String DEFAULT_DEVICES_PATH = "devices";
 	public File morphsDir = null;
 	public File devicesDir = null;
-	@Deprecated
 	public File morphsCompileDir;
 	public File morphsDirGroovy;
 	public static ExternalDirectories instance = null;
@@ -38,8 +35,10 @@ public class ExternalDirectories {
 	}
    
    public static String getUserDirectory() {
-//	   return System.getProperty("user.home") + "/MJDJ";
-	   return ".";
+	   if (Main.isDevelopment)
+		   return ".";
+	   else 
+		   return System.getProperty("user.home") + "/MJDJ";
    }
    
    public static String getUserDirectory(String path) {
