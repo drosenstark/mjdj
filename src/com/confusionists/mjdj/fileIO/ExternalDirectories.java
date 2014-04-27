@@ -11,13 +11,16 @@ You may contact the author at mjdj_midi_morph [at] confusionists.com
 package com.confusionists.mjdj.fileIO;
 
 import java.io.File;
+import java.net.URISyntaxException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import com.confusionists.mjdj.ui.Logger;
 
 public class ExternalDirectories {
-	private static String DEFAULT_MORPHS_PATH = "./morphs";
-	private static String DEFAULT_MORPHS_GROOVY_PATH = "./morphs-groovy";
-	private static String DEFAULT_DEVICES_PATH = "./devices";
+	private static String DEFAULT_MORPHS_PATH = "morphs";
+	private static String DEFAULT_MORPHS_GROOVY_PATH = "morphs-groovy";
+	private static String DEFAULT_DEVICES_PATH = "devices";
 	public File morphsDir = null;
 	public File devicesDir = null;
 	@Deprecated
@@ -32,19 +35,35 @@ public class ExternalDirectories {
 
    static {
 		instance = new ExternalDirectories();
-		instance.morphsDir = checkDir(DEFAULT_MORPHS_PATH);
-		instance.morphsDirGroovy = checkDir(DEFAULT_MORPHS_GROOVY_PATH);
-		instance.devicesDir = checkDir(DEFAULT_DEVICES_PATH);
 	}
-
-	private static File checkDir(String dirName) {
+   
+   public static String getUserDirectory() {
+//	   return System.getProperty("user.home") + "/MJDJ";
+	   return ".";
+   }
+   
+   public static String getUserDirectory(String path) {
+	   return getUserDirectory() + "/" + path;
+   }
+   
+   
+   private ExternalDirectories() {
+	   super();
+	   morphsDir = checkDir(DEFAULT_MORPHS_PATH);
+	   morphsDirGroovy = checkDir(DEFAULT_MORPHS_GROOVY_PATH);
+	   devicesDir = checkDir(DEFAULT_DEVICES_PATH);
+   }
+   
+	private File checkDir(String dirName) {
+		dirName = getUserDirectory(dirName);
 		File retVal = new File(dirName);
 		if (retVal.exists()) {
 			if (!retVal.isDirectory()) {
 				throw new RuntimeException("Path " + retVal.getAbsolutePath() + " is not a directory.");
-			}
+			} else 
+				Logger.log("Found: " + retVal.getAbsolutePath());
 		} else {
-			if (retVal.mkdir()) {
+			if (retVal.mkdirs()) {
 				Logger.log("Sucessfully made directory " + retVal.getAbsolutePath() + ".");
 			} else {
 				throw new RuntimeException("Could not create directory " + retVal.getAbsolutePath() + ".");

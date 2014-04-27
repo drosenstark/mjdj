@@ -6,25 +6,26 @@ jar -cvf $startDir/Mjdj.jar .
 cd $startDir
 
 
-deployDirOsx="$HOME/Dropbox/dr2050-rig/MjdjMidiMorph"
+deployDirOsxJars="/dans-data/java/MjdjBundling/bin"
+deployDirOsxMorphs="/dans-data/java/MjdjBundling/dist"
 deployDirWindows="../MjdjDeployment/MjdjWindows-Beta-Next"
 
 # copy to Windows
 cp *.jar "$deployDirWindows/lib"
 
-echo "trying this: $deployDirOsx/Mjdj.app/Contents/Resources/Java/"
+echo "trying this: $deployDirOsxJars/"
 # move to OSX
-mv *.jar "$deployDirOsx/Mjdj.app/Contents/Resources/Java/"
+mv *.jar "$deployDirOsxJars/"
 
 # remove the old morphs and devices
-rm -rf $deployDirOsx/morphs
-rm  -rf $deployDirOsx/morphs-groovy
-rm -rf $deployDirOsx/devices
+#rm -rf $deployDirOsxMorphs/morphs
+#rm -rf $deployDirOsxMorphs/morphs-groovy
+#rm -rf $deployDirOsxMorphs/devices
 
 
 # copy the compiled morphs
-cp -R ./morphs/ "$deployDirOsx/morphs"
-cp -R ./morphs-groovy $deployDirOsx/
+#cp -R ./morphs/ "$deployDirOsxMorphs/morphs"
+#cp -R ./morphs-groovy $deployDirOsxMorphs/
 #cp -R ./devices/ ./MjdjMidiMorph/devices/
 
 
@@ -38,3 +39,11 @@ cp -R ./morphs-groovy $deployDirOsx/
 #cp -R ./morphs-groovy ./MjdjOnWindows/
 #cp -R ./devices/ ./MjdjOnWindows/devices/
 
+rm -rf $HOME/MJDJ/morphs
+ln -s $startDir/morphs $HOME/MJDJ/morphs
+echo "Made it to $HOME/MJDJ/morphs"
+rm -rf $HOME/MJDJ/morphs-groovy
+ln -s $startDir/morphs-groovy $HOME/MJDJ/morphs-groovy
+rm -rf $HOME/MJDJ/devices
+ln -s $startDir/devices $HOME/MJDJ/devices
+#ln -s $startDir/morphs-groovy $HOME/MJDJ/morphs-groovy

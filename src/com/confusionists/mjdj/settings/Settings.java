@@ -13,6 +13,7 @@ package com.confusionists.mjdj.settings;
 import java.io.*;
 import java.util.Hashtable;
 
+import com.confusionists.mjdj.fileIO.ExternalDirectories;
 import com.confusionists.mjdjApi.morph.Morph;
 import com.thoughtworks.xstream.XStream;
 
@@ -48,6 +49,10 @@ public class Settings  {
 		return retVal;
 	}
 	
+	private static String getFilename() {
+		return ExternalDirectories.getUserDirectory(FILENAME);
+	}
+	
 
 	public static Settings getInstance(boolean forceReload, boolean forceNew) {
 		if (forceNew)
@@ -56,10 +61,10 @@ public class Settings  {
 			try {
 				load();
 			} catch (FileNotFoundException fe) {
-				System.out.println("Settings probably not found in file " + FILENAME);
+				System.out.println("Settings probably not found in file " + getFilename());
 				instance = new Settings();
 			} catch (Exception e) {
-				throw new RuntimeException("Problem loading settings from file " + new File(FILENAME).getAbsolutePath(),e);
+				throw new RuntimeException("Problem loading settings from file " + new File(getFilename()).getAbsolutePath(),e);
 				
 			}
 		}
@@ -83,10 +88,10 @@ public class Settings  {
 	
 	public static void load() throws FileNotFoundException  {
 		// Create input streams.
-			FileInputStream fis = new FileInputStream(FILENAME);
+			FileInputStream fis = new FileInputStream(getFilename());
 			XStream xstream = new XStream();
 			instance = (Settings) xstream.fromXML(fis);
-			System.out.println("Settings reloaded sucessfully from " + new File(FILENAME).getAbsolutePath());
+			System.out.println("Settings reloaded sucessfully from " + new File(getFilename()).getAbsolutePath());
 			try {
 				fis.close();
 			} catch (IOException e) {
@@ -96,11 +101,11 @@ public class Settings  {
 
 	public void save() throws IOException {
 		// Create output stream.
-		FileOutputStream fos = new FileOutputStream(FILENAME);
+		FileOutputStream fos = new FileOutputStream(getFilename());
 		// Create XML encoder.
 		XStream xstream = new XStream();
 		xstream.toXML(this, fos);
-		System.out.println("Settings have been saved.");
+		System.out.println("Settings have been saved to " + getFilename());
 		fos.close();
 	}
 
