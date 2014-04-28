@@ -47,3 +47,7 @@ ln -s $startDir/morphs-groovy $HOME/MJDJ/morphs-groovy
 rm -rf $HOME/MJDJ/devices
 ln -s $startDir/devices $HOME/MJDJ/devices
 #ln -s $startDir/morphs-groovy $HOME/MJDJ/morphs-groovy
+
+echo "If MJDJ itself has changed then you'll need"
+echo "cd ../MjdjBundling"
+echo "./make.sh"
