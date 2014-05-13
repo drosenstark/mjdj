@@ -44,9 +44,14 @@ public class MorphCheckboxList extends CheckBoxList {
 		if (afterMorph == null)
 			return sortedMorphs;
 
-		int morphIndex = Settings.getInstance().getMorphAdaptor(afterMorph).orderNumber + 1;
+		int morphIndex = Settings.getInstance().getMorphAdaptor(afterMorph).orderNumber + 2;
 
 		List<MorphAdaptor> retVal = sortedMorphs.subList(morphIndex, sortedMorphs.size());
+		
+//		for (MorphAdaptor adapter : retVal) {
+//			Morph morph = adapter.getMorph();
+//			System.out.println("--------- WHAT" + morph.hashCode() + ": " + morph.getName() + " vs. afterMorph " + afterMorph.hashCode() + " " + afterMorph.getName());
+//		}
 		return retVal;
 	}
 
@@ -94,9 +99,10 @@ public class MorphCheckboxList extends CheckBoxList {
 
 		// clear out the morphs list and put it back in order
 		sortedMorphs.clear();
-		ListModel currentList = this.getModel();
+		@SuppressWarnings("unchecked")
+		ListModel<MorphCheckbox> currentList = this.getModel();
 		for (int i = 0; i < currentList.getSize(); i++) {
-			MorphAdaptor morph = ((MorphCheckbox) currentList.getElementAt(i)).morph;
+			MorphAdaptor morph = currentList.getElementAt(i).morph;
 			sortedMorphs.add(morph);
 			morph.orderNumber = i;
 		}
@@ -109,9 +115,10 @@ public class MorphCheckboxList extends CheckBoxList {
 	 * @return
 	 */
 	public MorphCheckbox getMorphCheckbox(Morph morph) {
-		ListModel currentList = this.getModel();
+		@SuppressWarnings("unchecked")
+		ListModel<MorphCheckbox> currentList = this.getModel();
 		for (int i = 0; i < currentList.getSize(); i++) {
-			MorphCheckbox checkbox = (MorphCheckbox) currentList.getElementAt(i);
+			MorphCheckbox checkbox = currentList.getElementAt(i);
 			if (checkbox.morph == morph)
 				return checkbox;
 		}

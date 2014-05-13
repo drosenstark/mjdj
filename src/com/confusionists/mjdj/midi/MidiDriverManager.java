@@ -212,8 +212,8 @@ public class MidiDriverManager {
 		sendToMorphs(message, from, null);
 	}
 
-	public void sendToMorphs(MessageWrapper message, String from, Morph avoidMorph) {
-		for (MorphAdaptor morph : Universe.instance.main.morphCheckboxList.getMorphs(avoidMorph)) {
+	public void sendToMorphs(MessageWrapper message, String from, Morph afterMorph) {
+		for (MorphAdaptor morph : Universe.instance.main.morphCheckboxList.getMorphs(afterMorph)) {
 			if (morph.isActive()) {
 				try {
 					boolean result = morph.getMorph().process(message, from);
