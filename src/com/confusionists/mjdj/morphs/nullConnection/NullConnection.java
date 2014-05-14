@@ -18,14 +18,26 @@ public class NullConnection extends AbstractMorphWithUI {
 	public String getName() {
 		return "Null-Connection (Right-Click to Open)";
 	}
- 
-	
-	
 
 	@Override
 	public String diagnose() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+
+
+	@Override
+	public boolean allowInputFromOtherMorphs() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean allowOutputToOtherMorphs() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	
