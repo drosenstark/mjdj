@@ -9,6 +9,7 @@ See the GNU General Public License for more details. You should have received a 
 You may contact the author at mjdj_midi_morph [at] confusionists.com
 */
 package com.confusionists.mjdj.morphs.nullConnection;
+import com.confusionists.mjdjApi.midi.MessageWrapper;
 import com.confusionists.mjdjApi.morph.AbstractMorphWithUI;
 
 
@@ -21,7 +22,6 @@ public class NullConnection extends AbstractMorphWithUI {
 
 	@Override
 	public String diagnose() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -30,14 +30,22 @@ public class NullConnection extends AbstractMorphWithUI {
 
 	@Override
 	public boolean allowInputFromOtherMorphs() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public boolean allowOutputToOtherMorphs() {
-		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	protected boolean processAndSend(MessageWrapper message, String to) {
+		return super.defaultProcessAndSend(message, to);
+	}
+
+	@Override
+	protected boolean processAndSendToOtherMorphs(MessageWrapper message) {
+		return super.defaultProcessAndSendToOtherMorphs(message);
 	}
 
 	

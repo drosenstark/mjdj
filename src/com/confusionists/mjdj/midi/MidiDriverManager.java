@@ -137,7 +137,7 @@ public class MidiDriverManager {
 //			Logger.log("Cannot use device " + receiver.toString() + ", name is already used.");
 		} 
 		transmitter.open();
-		transmitter.setService(ServiceImpl.instance);
+		transmitter.setService(MjdjServiceImpl.instance);
 		inputTransmitters.add(transmitter);
 	}
 
@@ -158,7 +158,7 @@ public class MidiDriverManager {
 		} 
 		
 		receiver.open();
-		receiver.setService(ServiceImpl.instance);
+		receiver.setService(MjdjServiceImpl.instance);
 		outputReceivers.add(receiver);
 	}
 
@@ -190,7 +190,7 @@ public class MidiDriverManager {
 					Logger.log("Removing device " + receiver.toString() + " because it's a duplicate name");
 					i.remove();
 				} else {
-					receiver.setService(ServiceImpl.instance);
+					receiver.setService(MjdjServiceImpl.instance);
 					receiver.open();
 					names.add(receiver.toString());
 				}

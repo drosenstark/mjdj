@@ -26,7 +26,7 @@ import org.codehaus.groovy.runtime.StackTraceUtils;
 
 import com.confusionists.mjdj.fileIO.MorphLoaderGroovy;
 import com.confusionists.mjdj.fileIO.MorphLoaderJava;
-import com.confusionists.mjdj.midi.ServiceImpl;
+import com.confusionists.mjdj.midi.MjdjServiceImpl;
 import com.confusionists.mjdj.morphs.nullConnection.NullConnection;
 import com.confusionists.mjdj.settings.MorphAdaptor;
 import com.confusionists.mjdj.settings.Settings;
@@ -396,7 +396,7 @@ public class Main extends JFrameRedux {
 
 	public void rescanMorphs() {
 		morphCheckboxList.setListData(new Vector<MorphCheckbox>());
-		MjdjService serviceImpl = new ServiceImpl();
+		MjdjService serviceImpl = new MjdjServiceImpl();
 
 		try {
 

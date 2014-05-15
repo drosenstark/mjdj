@@ -28,9 +28,9 @@ import com.confusionists.mjdjApi.morph.Morph;
 import com.confusionists.mjdjApi.util.MidiTimerTask;
 import com.confusionists.mjdjApi.util.MjdjService;
 
-public class ServiceImpl implements MjdjService {
+public class MjdjServiceImpl implements MjdjService {
 
-	public static ServiceImpl instance = new ServiceImpl();
+	public static MjdjServiceImpl instance = new MjdjServiceImpl();
 
 	@Override
 	public void morph(MessageWrapper msgWrapper, String from) {
