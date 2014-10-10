@@ -10,3 +10,4 @@ MjdjOnWindows/lib/MjdjApi.jar
 .classpath
 morphs
 settings.xml
+bin/*
