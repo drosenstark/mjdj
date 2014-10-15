@@ -101,7 +101,7 @@ public class MjdjServiceImpl implements MjdjService {
 	
 	@Override
 	public void logLine() {
-		log("—————————————————————————————————————————————————————————————");
+		log("-----------------------------------------------------------------");
 	}
 	
 
