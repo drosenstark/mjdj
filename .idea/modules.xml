@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../MjdjAPI/src//MjdjAPI.iml" filepath="$PROJECT_DIR$/../MjdjAPI/src//MjdjAPI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../MjdjMorphs/src/MjdjMorphs.iml" filepath="$PROJECT_DIR$/../MjdjMorphs/src/MjdjMorphs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MjdjMorphsGroovy/MjdjMorphsGroovy.iml" filepath="$PROJECT_DIR$/MjdjMorphsGroovy/MjdjMorphsGroovy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/MjdjSrc.iml" filepath="$PROJECT_DIR$/src/MjdjSrc.iml" />
+    </modules>
+  </component>
+</project>
+

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/../../MjdjMorphsGroovy/bin" />
+    <output-test url="file://$MODULE_DIR$/../../MjdjMorphsGroovy/test" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../MjdjMorphs/groovy-src">
+      <sourceFolder url="file://$MODULE_DIR$/../../MjdjMorphs/groovy-src" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="groovy-2.3.7" level="application" />
+    <orderEntry type="module" module-name="MjdjMorphs" />
+    <orderEntry type="module" module-name="MjdjAPI" />
+  </component>
+</module>
+
