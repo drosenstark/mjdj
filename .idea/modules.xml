@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ProjectModuleManager">
-    <modules />
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Mjdj.iml" filepath="$PROJECT_DIR$/Mjdj.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../MjdjAPI/MjdjAPI.iml" filepath="$PROJECT_DIR$/../MjdjAPI/MjdjAPI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../MjdjMorphs/MjdjMorphs.iml" filepath="$PROJECT_DIR$/../MjdjMorphs/MjdjMorphs.iml" />
+    </modules>
   </component>
 </project>
 
