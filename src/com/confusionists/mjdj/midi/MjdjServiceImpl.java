@@ -97,8 +97,13 @@ public class MjdjServiceImpl implements MjdjService {
 	@Override
 	public void log(String string, Exception e) {
 		Logger.log(string, e);
-
 	}
+	
+	@Override
+	public void logLine() {
+		log("-----------------------------------------------------------------");
+	}
+	
 
 	@Override
 	public boolean isMorphActive(String name) {
@@ -176,5 +181,6 @@ public class MjdjServiceImpl implements MjdjService {
 			return -1;
 		return 0;
 	}
+
 
 }

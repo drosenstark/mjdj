@@ -11,3 +11,7 @@ MjdjOnWindows/lib/MjdjApi.jar
 morphs
 settings.xml
 bin/*
+.idea/
+.idea/*
+.idea/**
+*.iml
