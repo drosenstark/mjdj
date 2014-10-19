@@ -12,12 +12,14 @@ package com.confusionists.mjdj.midi;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.TimerTask;
 
 import javax.sound.midi.InvalidMidiDataException;
 
 import com.confusionists.mjdj.Universe;
 import com.confusionists.mjdj.keystrokes.Keyboard;
 import com.confusionists.mjdj.midi.time.BeatLockedTimerTask;
+import com.confusionists.mjdj.midi.time.MidiTimerTaskWrapper;
 import com.confusionists.mjdj.ui.Logger;
 import com.confusionists.mjdj.ui.MorphCheckbox;
 import com.confusionists.mjdj.ui.MorphCheckboxList;
@@ -157,7 +159,8 @@ public class MjdjServiceImpl implements MjdjService {
 
 	@Override
 	public boolean scheduleInMs(MidiTimerTask task, int delay) {
-		Universe.instance.centralTimer.schedule(task, delay);
+        MidiTimerTaskWrapper taskWrapper =  new MidiTimerTaskWrapper(task);
+		Universe.instance.centralTimer.schedule(taskWrapper, delay);
 		return true;
 	}
 
