@@ -39,7 +39,7 @@ public class NullConnection extends AbstractMorphWithUI {
 	}
 
 	@Override
-	protected boolean processAndSend(MessageWrapper message, String to) {
+	protected boolean processAndSend(MessageWrapper message, String from, String to) {
 		return super.defaultProcessAndSend(message, to);
 	}
 
