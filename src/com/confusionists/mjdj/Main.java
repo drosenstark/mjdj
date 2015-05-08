@@ -10,6 +10,7 @@ You may contact the author at mjdj_midi_morph [at] confusionists.com
 */
 package com.confusionists.mjdj;
 
+import java.io.File;
 import java.util.*;
 import java.util.List;
 import java.util.Timer;
@@ -247,7 +248,7 @@ public class Main extends JFrameRedux {
 			}
 		});
 		// broken
-		//  jMenuTools.add(menuItem);
+		jMenuTools.add(menuItem);
 
 		menuItem = new JMenuItem();
 		menuItem.setText("Rescan Morphs");
@@ -384,7 +385,29 @@ public class Main extends JFrameRedux {
 
 	}
 
+    public void restartApplication() throws Exception
+    {
+//        final String javaBin = System.getProperty("java.home") + File.separator + "bin" + File.separator + "java";
+//        final File currentJar = new File(this.class.getProtectionDomain().getCodeSource().getLocation().toURI());
+//
+//  /* is it a jar file? */
+//        if(!currentJar.getName().endsWith(".jar"))
+//            return;
+//
+//  /* Build command: java -jar application.jar */
+//        final ArrayList<String> command = new ArrayList<String>();
+//        command.add(javaBin);
+//        command.add("-jar");
+//        command.add(currentJar.getPath());
+//
+//        final ProcessBuilder builder = new ProcessBuilder(command);
+//        builder.start();
+        System.exit(605);
+    }
+
 	public void rescanMidi() {
+
+
 		Universe.instance.midiDriverManager.close();
 
 		Universe.instance.midiDriverManager.init();
