@@ -16,3 +16,8 @@ Revision History:
 2010-10-15
 	Beta 0.1.0
 	Still rolling out website and Wiki.
+
+-----
+
+**Note**: 
+Check [here](http://confusionstudios.com/mjdj-files/support-files-for-mjdj-dev.zip) for the files mentioned in the MJDJ Walkthrough.
